@@ -1,0 +1,46 @@
+# Papers under review / in preparation.
+#
+# `venue` is deliberately NOT rendered on the public site: several target venues
+# are double-blind and treat publicising a submission as promotion during review.
+# It is kept here so the field is available for the PDF CV you email directly.
+# Flip `show_venue` in _config.yml if you decide otherwise.
+
+- title: "Reliability-Guided Topological Anchor Projection for Test-Time Adaptation of Vision-Language Models"
+  note_en: "topological anchor projection; reliability constraints"
+  note_zh: "拓扑锚点投影 · 可靠性约束"
+  venue: "IJCV"
+  status_en: "Under review"
+  status_zh: "在投"
+  first_author: true
+
+- title: "AHE-CATE: A Bayesian Compass for Robust Test-Time Adaptation in Vision-Language Models"
+  note_en: "Bayesian online inference; cache-aware fusion"
+  note_zh: "贝叶斯在线推理 · 缓存感知融合"
+  venue: "IEEE TPAMI"
+  status_en: "Under review"
+  status_zh: "在投"
+  first_author: true
+
+- title: "Controlling Object-Induced Shortcuts for Compositional Zero-Shot Learning"
+  note_en: "object shortcut control; compositional generalization"
+  note_zh: "对象诱导捷径控制 · 组合泛化"
+  venue: "AAAI"
+  status_en: "Under review"
+  status_zh: "在投"
+  first_author: true
+
+- title: "SURE: Semantic Uncertainty Regularization for Test-Time Adaptation in Vision-Language Models"
+  note_en: "semantic uncertainty; reliability graph propagation"
+  note_zh: "语义不确定性 · 可靠性图传播"
+  venue: "Pattern Recognition"
+  status_en: "Under review"
+  status_zh: "在投"
+  first_author: true
+
+- title: "Confidently Ruling Out Uncertainty: Sorting-Induced Exclusionary Distributions for Test-Time Zero-Shot Generalization"
+  note_en: "sorting-induced exclusionary distributions; suppressing wrong candidates"
+  note_zh: "排序排除分布 · 错误候选抑制"
+  venue:
+  status_en: "In preparation"
+  status_zh: "待投稿"
+  first_author: true

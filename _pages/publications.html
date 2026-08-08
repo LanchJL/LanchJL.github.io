@@ -1,0 +1,41 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+nav: main
+lang_alt: /zh/publications/
+---
+
+{% include base_path %}
+
+<p class="wordwrap">
+  14 peer-reviewed papers, 6 as first author, plus 5 under review or in preparation.
+  Also on <a href="{{ site.author.googlescholar }}">Google Scholar</a>
+  and <a href="https://dblp.org/search?q=Chenyi+Jiang">DBLP</a>.
+</p>
+
+<h2>Under review / in preparation</h2><hr />
+<ul class="under-review-list">
+{% for p in site.data.under_review %}
+  <li>
+    <strong>{{ p.title }}</strong><br />
+    <span class="under-review-note">{{ p.note_en }}</span>
+    &mdash; <em>{{ p.status_en }}</em>
+  </li>
+{% endfor %}
+</ul>
+
+<h2>First-author papers</h2><hr />
+{% for post in site.publications reversed %}
+  {% if post.first_author %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
+
+<h2>Co-authored papers</h2><hr />
+{% for post in site.publications reversed %}
+  {% unless post.first_author %}
+    {% include archive-single.html %}
+  {% endunless %}
+{% endfor %}

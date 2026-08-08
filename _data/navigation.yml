@@ -1,0 +1,26 @@
+# Site navigation.
+#
+# Two menus are defined: `main` for the English tree at / and `zh` for the
+# Chinese tree at /zh/. A page picks its menu with `nav:` in front matter
+# (defaults to `main`) and links to its translation with `lang_alt:`.
+# See _includes/masthead.html.
+
+main:
+  - title: "Publications"
+    url: /publications/
+
+  - title: "Research"
+    url: /research/
+
+  - title: "CV"
+    url: /cv/
+
+zh:
+  - title: "论文"
+    url: /zh/publications/
+
+  - title: "研究"
+    url: /zh/research/
+
+  - title: "简历"
+    url: /zh/cv/

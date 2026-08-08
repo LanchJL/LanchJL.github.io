@@ -1,0 +1,170 @@
+/* ==========================================================================
+   CV presentation + print stylesheet
+   --------------------------------------------------------------------------
+   The /cv/ and /zh/cv/ pages double as the printable CV: "Print / Save as PDF"
+   in the browser produces the PDF that gets emailed out, so screen chrome
+   (nav, sidebar, footer, theme toggle) must disappear and the content column
+   must expand to the full page width.
+   ========================================================================== */
+
+/* ---------- screen ---------- */
+
+.cv-header {
+  margin-bottom: 1.5em;
+
+  h1 {
+    margin-bottom: 0.2em;
+  }
+}
+
+.cv-name-zh {
+  font-size: 0.62em;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.cv-print-hint {
+  font-size: 0.8em;
+  opacity: 0.75;
+  margin-bottom: 2em;
+}
+
+.under-review-list {
+  li {
+    margin-bottom: 0.85em;
+  }
+}
+
+.under-review-note {
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+/* ---------- print ---------- */
+
+@media print {
+
+  /* Chrome that must not reach paper. */
+  .masthead,
+  .page__footer,
+  .sidebar,
+  .author__avatar,
+  .author__urls-wrapper,
+  .page__share,
+  .page__meta,
+  .pagination,
+  .no-print,
+  #theme-toggle,
+  #site-nav,
+  .back-to-top,
+  .skip-link {
+    display: none !important;
+  }
+
+  /* The theme lays the page out with Susy grid floats and a left sidebar
+     column; on paper we want a single full-width column instead. */
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 10.5pt;
+    line-height: 1.4;
+  }
+
+  #main,
+  .page,
+  .page__inner-wrap,
+  .page__content,
+  .archive,
+  .initial-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    clear: both !important;
+  }
+
+  /* Links: keep them readable as plain text rather than coloured/underlined,
+     but they stay clickable in the exported PDF. */
+  a,
+  a:visited {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  /* Section headings: academicpages renders `======` as h1, which is far too
+     large for a CV section on paper. */
+  .page__content {
+    h1 {
+      font-size: 15pt;
+      margin: 1.1em 0 0.35em;
+      padding-bottom: 0.15em;
+      border-bottom: 0.5pt solid #000;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 12pt;
+      margin: 0.9em 0 0.3em;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      font-size: 11pt;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+  }
+
+  /* The name block at the top. */
+  .cv-header {
+    margin-bottom: 1em;
+
+    h1 {
+      font-size: 20pt !important;
+      border-bottom: none !important;
+      margin-top: 0 !important;
+    }
+
+    p {
+      margin: 0.15em 0;
+      font-size: 9.5pt;
+    }
+  }
+
+  .cv-name-zh {
+    font-size: 0.6em;
+  }
+
+  /* Publication entries should not be split across a page boundary. */
+  li,
+  .under-review-list li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 0.4em;
+  }
+
+  ol,
+  ul {
+    margin-top: 0.3em;
+    padding-left: 1.4em;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Editorial TODO comments are HTML comments and never render, but any
+     leftover placeholder text should be obvious if it slips through. */
+  .todo {
+    display: none !important;
+  }
+
+  @page {
+    margin: 16mm 15mm;
+  }
+}
