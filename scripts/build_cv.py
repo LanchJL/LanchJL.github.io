@@ -79,28 +79,27 @@ TARGETS = {
 }
 
 SUMMARY = [
-    """How would you picture a <i>black swan</i>, having seen only a <i>black cat</i>
-    and a <i>white swan</i>? Easily &mdash; black transfers. Now picture an <i>old
-    dog</i>, given an <i>old car</i> and a <i>cute dog</i>. You cannot: <i>old</i> means
-    something else entirely once it attaches to a different object.""",
+    """A model is never shown the world. It is shown a description of it: a vector of
+    attributes standing in for a class, an implicit prior over what is likely, a loss
+    deciding which mistakes matter, a metric deciding what counts as close. Every one of
+    these is an approximation somebody made, and the field has largely agreed to treat
+    them as ground truth and spend its effort on the model instead.""",
 
-    """Closing that gap is usually attempted with more capacity &mdash; larger encoders,
-    extra branches, new architectures. I have repeatedly found the problem somewhere
-    cheaper and far less examined: in what the model is told to match. One attribute
-    vector stands for every image of a class. Every composition is implicitly assumed
-    equally likely. Every wrong answer is punished identically, whether it was nearly
-    right or absurd. Each is an inherited assumption, and each costs more generalization
-    than model size does.""",
+    """My work is a sequence of demonstrations that this is where generalization is
+    actually lost, and that repairing the description is cheaper than enlarging the
+    model. One attribute vector stands for every image of a class, discarding everything
+    that tells those images apart. Every wrong answer is punished identically, whether it
+    was nearly right or absurd. Language used to describe an unseen domain pulls features
+    away from where that domain&rsquo;s images actually live.""",
 
-    """My work isolates one such assumption, shows what it costs, and replaces it
-    &mdash; where possible at no cost at inference. <i>ProLT</i> (AAAI 2024) is the
-    clearest case: the visual bias the field had treated as a defect of representation
-    turns out to approximate a long-tailed distribution, which makes it correctable by a
-    class prior derived in closed form, with no additional parameters.""",
+    """<i>ProLT</i> (AAAI 2024) is the clearest instance. The visual bias the field had
+    treated as a defect of representation turns out to approximate a long-tailed
+    distribution &mdash; which makes it correctable in closed form by a class prior, and
+    costs nothing at inference.""",
 
-    """Followed far enough, the line runs out of supervision to correct. At test time
-    there is none &mdash; the distribution has moved, no labels are coming, and the model
-    has to construct its own evidence. That is my current focus.""",
+    """Followed far enough, this line runs out of supervision to repair. At test time
+    there is none: the distribution has moved, no labels are coming, and the model has to
+    construct its own evidence from the stream it is given. That is my current focus.""",
 ]
 
 EDUCATION = [
@@ -142,19 +141,22 @@ SERVICE = ("Reviewer for <b>NeurIPS</b>, <b>ICML</b>, <b>ICLR</b>, <b>AAAI</b>, 
            "<i>Pattern Recognition</i>, and <i>IEEE Transactions on Circuits and "
            "Systems for Video Technology</i>.")
 
+# Every line here has to survive one follow-up question in an interview, so it
+# lists tools actually used in the repositories rather than method names lifted
+# from paper titles. Those belong in the publication list, where they are
+# attached to a paper that can be discussed.
 SKILLS = [
     ("Deep learning",
-     "PyTorch, torchvision, timm; multi-GPU training and experiment management on "
-     "Linux GPU servers"),
+     "PyTorch, torchvision, timm; training and evaluation pipelines on Linux GPU "
+     "servers"),
     ("Vision-language",
-     "CLIP / OpenCLIP; prompt-based adaptation, cache-based test-time adaptation, "
-     "Bayesian online inference"),
+     "CLIP: fine-tuning, prompt-based adaptation, and test-time adaptation"),
     ("Scientific computing", "NumPy, SciPy, scikit-learn, pandas"),
     ("Imaging",
      "OpenCV, Pillow, OpenSlide (gigapixel whole-slide images), einops, h5py"),
     ("Mathematics",
-     "B.Sc. in mathematics; the class-prior derivation in ProLT and the Bayesian "
-     "formulation in the test-time adaptation work follow directly from it"),
+     "B.Sc. in mathematics; the closed-form class-prior derivation in ProLT "
+     "follows directly from it"),
 ]
 
 
