@@ -4,11 +4,36 @@ layout: compress
 
 {% include base_path %}
 
+{% comment %}
+  The site is bilingual, so the language cannot come from site.locale — that
+  would label the Chinese pages as English, which makes browsers offer to
+  "translate from English", misleads screen readers, and stops search engines
+  indexing the Chinese tree as Chinese. `nav` already marks the tree a page
+  belongs to (see _includes/masthead.html), so reuse it.
+{% endcomment %}
+{% if page.nav == 'zh' %}
+  {% assign page_lang = 'zh-Hans' %}
+{% else %}
+  {% assign page_lang = site.locale | slice: 0,2 | default: 'en' %}
+{% endif %}
+
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
+<html lang="{{ page_lang }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
   <head>
     {% include head.html %}
     {% include head/custom.html %}
+    {% comment %} Tell search engines the two trees are translations of each other. {% endcomment %}
+    {% if page.lang_alt %}
+      {% if page.nav == 'zh' %}
+        <link rel="alternate" hreflang="zh-Hans" href="{{ page.url | absolute_url }}" />
+        <link rel="alternate" hreflang="en" href="{{ page.lang_alt | absolute_url }}" />
+        <link rel="alternate" hreflang="x-default" href="{{ page.lang_alt | absolute_url }}" />
+      {% else %}
+        <link rel="alternate" hreflang="en" href="{{ page.url | absolute_url }}" />
+        <link rel="alternate" hreflang="zh-Hans" href="{{ page.lang_alt | absolute_url }}" />
+        <link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}" />
+      {% endif %}
+    {% endif %}
   </head>
 
   <body>
