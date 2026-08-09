@@ -140,7 +140,7 @@ SKILLS = [
      "servers"),
     ("Vision-language",
      "CLIP: fine-tuning, prompt-based adaptation, and test-time adaptation"),
-    ("Scientific computing", "NumPy, SciPy, scikit-learn, pandas"),
+    ("Numerical", "NumPy, SciPy, scikit-learn, pandas"),
     ("Imaging",
      "OpenCV, Pillow, OpenSlide (gigapixel whole-slide images), einops, h5py"),
     ("Mathematics",
@@ -266,7 +266,9 @@ ol.pubs .links a { color: #26455c; }
 
 table.skills { width: 100%; border-collapse: collapse; }
 table.skills td { padding: 2px 0; vertical-align: top; }
-table.skills td.k { width: 118px; font-weight: bold; white-space: nowrap; }
+/* Sized for the longest label in bold, plus a gutter so it cannot run up
+   against the value column. Check this if a longer label is added. */
+table.skills td.k { width: 140px; padding-right: 14px; font-weight: bold; white-space: nowrap; }
 
 ul.awards { margin: 0; padding-left: 18px; }
 ul.awards li { margin-bottom: 3px; break-inside: avoid; }
