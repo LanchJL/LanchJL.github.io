@@ -442,6 +442,37 @@ def render(target=None):
     if cfg:
         print("  target : %s" % cfg["note"])
         print("  leading: %s" % ", ".join(cfg.get("lead", [])))
+    return out
+
+
+CHROME = [
+    r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+    r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+]
+
+
+def to_pdf(html_path, pdf_path):
+    """Print the CV through headless Chrome.
+
+    Done here rather than by hand because the browser's print dialog defaults to
+    stamping the file path and today's date into the page margins, which looks
+    careless on a CV and is easy to forget to turn off. --no-pdf-header-footer
+    settles it once.
+    """
+    import subprocess
+    exe = next((p for p in CHROME if os.path.exists(p)), None)
+    if not exe:
+        print("  no Chrome or Edge found; open the HTML and print to PDF by hand")
+        return
+    url = "file:///" + html_path.replace("\\", "/")
+    subprocess.run([exe, "--headless=new", "--disable-gpu",
+                    "--no-pdf-header-footer",
+                    "--print-to-pdf=" + pdf_path, url],
+                   check=False, capture_output=True, timeout=120)
+    if os.path.exists(pdf_path):
+        print("  pdf    : %s (%.0f KB)" % (pdf_path, os.path.getsize(pdf_path) / 1024))
+    else:
+        print("  pdf    : failed")
 
 
 if __name__ == "__main__":
@@ -449,4 +480,10 @@ if __name__ == "__main__":
     tgt = None
     if "--target" in sys.argv:
         tgt = sys.argv[sys.argv.index("--target") + 1]
-    render(tgt)
+    html = render(tgt)
+    if "--pdf" in sys.argv:
+        # The filename a recruiter or PI sees in their inbox.
+        pdf = os.path.join(os.path.dirname(html), "CV-江宸逸-南京理工大学.pdf")
+        if tgt:
+            pdf = pdf.replace(".pdf", "-%s.pdf" % tgt)
+        to_pdf(html, pdf)

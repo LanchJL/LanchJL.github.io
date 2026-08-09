@@ -76,11 +76,18 @@ the full page width.
 **The academic CV.** For postdoc applications, generate the standalone document:
 
 ```
-python scripts/build_cv.py
+python scripts/build_cv.py --pdf
 ```
 
 It reads `_publications/` and `_data/under_review.yml`, so it cannot drift out of step
-with the site, and writes `../resume/CV-Chenyi-Jiang.html`. Print that to PDF.
+with the site, writes `../resume/CV-Chenyi-Jiang.html`, and prints it through headless
+Chrome to `../resume/CV-江宸逸-南京理工大学.pdf`.
+
+The `--pdf` step exists because the browser print dialog stamps the file path and the
+date into the page margins by default. That looks careless on a CV and is easy to
+forget to switch off; `--no-pdf-header-footer` settles it.
+
+Add `--target <name>` for a per-application variant (see `TARGETS` in the script).
 
 The one deliberate difference from the website: the CV **names the target venue** for
 papers under review. The site withholds it, because publicising a submission to a
