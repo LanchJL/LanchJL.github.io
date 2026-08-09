@@ -131,20 +131,11 @@ III. Test-time adaptation of vision-language models
 A pre-trained vision-language model carries broad knowledge but no guarantee about the
 distribution it will actually meet. My current work asks how such a model should
 **reorganize its own evidence at test time** --- unlabelled, online, and without a second
-training pass.
+training pass. A related line returns to compositional zero-shot learning, treating an
+object prior as evidence to be regulated rather than noise to be removed.
 
-The threads I am pursuing: projecting predictions onto topological anchors under a
-reliability constraint; Bayesian online inference over an adaptive cache, so that what
-the model remembers from the test stream is itself filtered; regularizing semantic
-uncertainty through a reliability graph; and building *exclusionary* distributions that
-rule out confidently wrong candidates instead of merely reinforcing confident ones.
-
-A related question returns to CZSL with a sharper framing: an object prior is not simply
-noise to be removed. Separating **object-existence evidence** from **object-induced
-bias** makes it possible to regulate the shortcut at the representation, optimization and
-inference levels while keeping the evidence intact.
-
-These papers are under review; see [Publications](/publications/).
+Six papers on these questions are currently under review; titles are listed under
+[Publications](/publications/).
 
 IV. Applied work — computational pathology
 ------
