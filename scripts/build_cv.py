@@ -59,16 +59,17 @@ INTERESTS = ("Zero-shot and compositional learning &middot; "
 
 TARGETS = {
     "zheng-um": {
-        "note": "Prof. Zhedong Zheng, University of Macau. Stated interests: "
-                "data-centric AI, uncertainty estimation, AIGC, spatial "
-                "intelligence, object re-identification; robust learning for "
-                "retrieval, generative learning for data augmentation, "
-                "unsupervised domain adaptation.",
+        "note": "Prof. Zhedong Zheng, University of Macau — uncertainty "
+                "estimation, data-centric AI, unsupervised domain adaptation.",
+        # Zero-shot is played down rather than dropped: it comes last and is
+        # described rather than named, so the line leans toward the shared
+        # ground without contradicting the publication list below it.
         "interests": (
-            "Uncertainty estimation and test-time adaptation for vision-language "
-            "models &middot; unsupervised and zero-shot domain adaptation &middot; "
-            "data-centric approaches to long-tailed and imbalanced recognition "
-            "&middot; compositional generalization"),
+            "Uncertainty estimation and test-time adaptation of vision-language "
+            "models &middot; unsupervised domain adaptation and cross-domain "
+            "generalization &middot; data-centric approaches to long-tailed and "
+            "imbalanced recognition &middot; generalization to unseen categories "
+            "and compositions"),
         # Lead with the domain-adaptation and data-viewpoint work rather than
         # strict reverse chronology.
         "lead": ["imbuing-enrichment-calibration-ijcv",
