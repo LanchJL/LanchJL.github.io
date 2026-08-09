@@ -32,7 +32,7 @@ Five papers mark that trajectory:
 | **1** | Attributes are modelled at class level, erasing within-class variation | Near-instance-level attribute bottleneck — *IJCV 2024* |
 | **2** | Compositional visual bias is treated purely as a representation defect | It closely approximates a long-tailed distribution, and is correctable by a derivable class prior — *AAAI 2024* |
 | **3** | States and objects treated as independent axes | Imaginary-connected embedding in complex space — *TPAMI 2025* |
-| **4** | Class relations ignored during transfer | Clique-based inter-class affinity — *Pattern Recognition 2026* |
+| **4** | Every wrong composition is penalized equally, whatever its affinity to the true one | Hierarchical supervision through affinity cliques — *Pattern Recognition 2026* |
 | **5** | Unseen domains cause manifold divergence and semantic collapse | Imbuing–Enrichment–Calibration — *IJCV 2025* |
 
 My current focus is **test-time adaptation of vision-language models** --- how a

@@ -85,33 +85,45 @@ attribute evidence conditioned on object prototypes. Evaluated on three benchmar
 including open-world classification.
 [Code](https://github.com/LanchJL/IMAX)
 
-### Class structure rather than isolated compositions — CIA, *Pattern Recognition 2026*
+### Not every mistake is equally wrong — CIA, *Pattern Recognition 2026*
 
-Transfer in CZSL is usually modelled composition by composition. **CIA** models affinity
-between *groups* of classes as cliques, so structure --- not just individual pairs ---
-transfers to unseen combinations. Built on CLIP (ViT-L/14), evaluated including the
-open-world setting.
+Existing CZSL objectives penalize every incorrect composition identically. Mistaking
+*sliced banana* for *ripe banana* is scored exactly like mistaking it for *rusty car* ---
+even though one of those errors is nearly right. Discarding that structure encourages
+severe overfitting to seen classes and hides the genuine visual-semantic relationships a
+model should be learning.
+
+**CIA** supplies the missing hierarchy. Compositions are grouped into **affinity
+cliques** built from both semantic and visual affinity, at multiple levels, and those
+cliques drive a **one-to-many** alignment between visual and semantic features instead of
+a single hard target. The emphasis shifts from direct classification to uncovering the
+compositional structure itself. Evaluated on MIT-States, UT-Zappos and C-GQA in both
+closed-world and open-world settings.
 [Code](https://github.com/LanchJL/CIA-CZSL)
 
 II. Extending to unseen domains — IMEC, *IJCV 2025*
 ------
 
-Zero-shot domain extension (ZSDE) asks a **semantic segmentation** model to work in a
-target domain for which no labels, and no images, were available at training time ---
-only a *description* of it in language. Building on prompt-driven domain adaptation, the
-failure modes are specific: the synthesized feature manifold drifts away from the real
-target domain, and semantics collapse as style is transferred.
+Language lets a model reach domains it has never seen: describe the target in words, and
+shift the training features accordingly. The catch is modal --- language and pixel-level
+images are not the same kind of thing, so semantically guided augmentation pulls the
+feature manifold away from where real target images actually live, and image content
+collapses under the semantic guidance.
 
-**IMEC** answers with three stages. *Imbuing* injects a learnable offset at semantic
-anchors so the feature layer can represent the target distribution at all. *Enrichment*
-adds directional perturbation, because a real domain has internal variation that a single
-synthesized point cannot express. *Calibration* selects dimension activations, keeping
-the transferred style while pulling the semantics back. Trained on Cityscapes / GTA5 and
-extended to adverse-condition targets such as ACDC.
+**IMEC** reverses the usual target-style mining so that semantic content survives the
+transfer. Global semantics conditionally generate style vectors, which are *imbued* into
+visual features; local semantics then supply minor perturbations that *enrich* those
+vectors by dispersing them, since a real domain has internal variation a single
+synthesized point cannot express; finally a dimensional activation strategy *calibrates*
+which semantic content is kept. The result joins abstract semantic knowledge to concrete
+image detail, narrowing the gap between synthetic and real target samples.
+
+It is evaluated across **semantic segmentation, object detection and image
+classification**, and improves the source domain as well as the target.
 [Code](https://github.com/LanchJL/IMEC-ZSDE)
 
-A related line applies language-guided attribute alignment and semantic consistency to
-zero-shot domain adaptation (**ICRA 2026**).
+A companion paper (**ICRA 2026**) addresses the same task through language-guided
+attribute alignment and semantic consistency.
 
 III. Test-time adaptation of vision-language models
 ------
