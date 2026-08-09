@@ -151,14 +151,20 @@ object prior as evidence to be regulated rather than noise to be removed.
 Six papers on these questions are currently under review; titles are listed under
 [Publications](/publications/).
 
-V. Applied work — computational pathology
+V. Applied work — multimodal kidney transplant pathology
 ------
 
-I work on **multimodal pathology analysis for kidney transplantation**, in collaboration
-with the Department of Kidney Transplantation, Zhongshan Hospital, Fudan University,
-where I am responsible for the full model implementation, training and evaluation on
-gigapixel whole-slide images.
+I work on a **multimodal diagnostic and prognostic model for kidney transplantation**,
+in collaboration with the Department of Kidney Transplantation, Zhongshan Hospital,
+Fudan University, where I am responsible for the full model implementation, training and
+evaluation.
 
-It is a useful reality check. Pathology presents the same structure my methodological
-work addresses --- severe class imbalance, long-tailed lesion categories, annotations that
-disagree across stains and centers --- but without the convenience of a clean benchmark.
+The model has to read across modalities that share almost nothing: gigapixel whole-slide
+images in several stains, longitudinal laboratory results, and clinical records. Getting
+them to inform a single prediction is a harder version of a problem I already work on ---
+IMEC exists because language and pixels are not the same kind of thing, and a biopsy
+slide and a creatinine trajectory are further apart still.
+
+It is also a useful reality check. Pathology brings severe class imbalance, long-tailed
+lesion categories, and annotations that disagree across stains and centers --- the same
+structure my methodological work addresses, without the convenience of a clean benchmark.

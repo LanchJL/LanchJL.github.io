@@ -78,12 +78,11 @@ Grants and projects
   *Transferable Feature-Semantic Embedding Methods for Zero-Shot Learning*.
   Principal investigator; completed.
 
-* **Multimodal pathology analysis for kidney transplantation** --- in collaboration
+* **Multimodal diagnosis and prognosis for kidney transplantation** --- in collaboration
   with the **Department of Kidney Transplantation, Zhongshan Hospital, Fudan
   University**. **Responsible for the full model implementation, training and
-  evaluation** across the pipeline --- whole-slide segmentation and lesion
-  classification on gigapixel images. An applied counterpart to my methodological
-  work on imbalanced and long-tailed recognition.
+  evaluation.** The model fuses multi-stain gigapixel whole-slide images with
+  longitudinal laboratory results and clinical records.
 
 Awards and honors
 ======
