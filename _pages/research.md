@@ -70,12 +70,19 @@ CZSL frameworks on MIT-States, UT-Zappos and C-GQA.
 
 ### The geometry of composition — IMAX, *IEEE TPAMI 2025*
 
-CZSL metrics usually measure the state and the object independently. **IMAX** extends
-the distance metric into **complex space**, which unifies those separate measures in one
-scheme, and uses the imaginary component to carry the coupling between an attribute and
-the object it modifies --- closer to how people understand an attribute as something that
-only exists *on* something. A visual-bias-based extraction module selects attribute
-evidence conditioned on object prototypes.
+Prior CZSL work sits at one of two extremes: learn each primitive on its own
+(*non-connected*), or bind them into a single dependent composition (*fully-connected*).
+Humans do neither --- we adapt a primitive *in light of* what it is composed with. That
+middle ground is hard to express in real space, where attribute, object and composition
+end up as three independent measures with no dynamic link between them.
+
+**IMAX** extends the CZSL distance metric into **complex space**, which unifies those
+three measures in one scheme. The move that makes it work is **phase**: phase information
+enters both training and inference as the metric of attribute-object dependency, while
+the primitives themselves are still acquired independently --- so dependency and
+independence stop being mutually exclusive. A visual-bias-based extraction module selects
+attribute evidence conditioned on object prototypes. Evaluated on three benchmarks,
+including open-world classification.
 [Code](https://github.com/LanchJL/IMAX)
 
 ### Class structure rather than isolated compositions — CIA, *Pattern Recognition 2026*
