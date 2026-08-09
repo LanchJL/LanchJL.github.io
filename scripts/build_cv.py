@@ -78,15 +78,30 @@ TARGETS = {
     },
 }
 
-SUMMARY = """My research asks what a recognition model is actually being told to
-match, and whether that target is right. Zero-shot methods inherit a great deal of
-supervision without examining it &mdash; one attribute vector per class, an implicitly
-uniform prior over compositions, an equal penalty for every wrong answer, distance
-measures that never speak to each other. Each is an assumption, and each costs more
-generalization than model capacity does. Most of my work locates one such assumption,
-shows what it costs, and replaces it, usually without adding parameters at inference.
-Pushed to its limit that line arrives at test time, where there is no supervision left
-to correct and the model must construct its own &mdash; which is my current focus."""
+SUMMARY = [
+    """How would you picture a <i>black swan</i>, having seen only a <i>black cat</i>
+    and a <i>white swan</i>? Easily &mdash; black transfers. Now picture an <i>old
+    dog</i>, given an <i>old car</i> and a <i>cute dog</i>. You cannot: <i>old</i> means
+    something else entirely once it attaches to a different object.""",
+
+    """Closing that gap is usually attempted with more capacity &mdash; larger encoders,
+    extra branches, new architectures. I have repeatedly found the problem somewhere
+    cheaper and far less examined: in what the model is told to match. One attribute
+    vector stands for every image of a class. Every composition is implicitly assumed
+    equally likely. Every wrong answer is punished identically, whether it was nearly
+    right or absurd. Each is an inherited assumption, and each costs more generalization
+    than model size does.""",
+
+    """My work isolates one such assumption, shows what it costs, and replaces it
+    &mdash; where possible at no cost at inference. <i>ProLT</i> (AAAI 2024) is the
+    clearest case: the visual bias the field had treated as a defect of representation
+    turns out to approximate a long-tailed distribution, which makes it correctable by a
+    class prior derived in closed form, with no additional parameters.""",
+
+    """Followed far enough, the line runs out of supervision to correct. At test time
+    there is none &mdash; the distribution has moved, no labels are coming, and the model
+    has to construct its own evidence. That is my current focus.""",
+]
 
 EDUCATION = [
     ("2023 &ndash; 2027 (expected)",
@@ -363,7 +378,7 @@ def render(target=None):
 
 <section>
   <h2>Research Summary</h2>
-  <p class="summary">%(summary)s</p>
+  %(summary)s
 </section>
 
 <section>
@@ -415,7 +430,10 @@ def render(target=None):
 </html>
 """ % dict(
         name=NAME_EN, zh=NAME_ZH, css=CSS, position=POSITION, contact=contact,
-        interests=interests, summary=SUMMARY, education=edu,
+        interests=interests,
+        summary="\n  ".join('<p class="summary">%s</p>' % re.sub(r"\s+", " ", p).strip()
+                            for p in SUMMARY),
+        education=edu,
         n_total=len(pubs), n_first=len(first), n_ur=len(ur),
         first=pub_items(first), co=pub_items(co), ur=ur_items,
         grants=grants, awards=awards, service=SERVICE, skills=skills,
