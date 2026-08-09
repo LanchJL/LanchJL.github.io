@@ -43,12 +43,13 @@ layout: compress
 
     {{ content }}
 
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
+    {% comment %}
+      The theme footer is dropped: a beige band (dirt sets $footer to #e9dcbe)
+      carrying a Follow row, a template credit and a link to the sitemap page
+      this site no longer has. The MIT notices for Minimal Mistakes and
+      AcademicPages stay in LICENSE, which is what the licence asks for — the
+      visible credit is customary, not required.
+    {% endcomment %}
 
     {% include scripts.html %}
 

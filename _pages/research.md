@@ -24,14 +24,13 @@ costing anything at inference time.
 
 Every project below has released code.
 
-I. Compositional and zero-shot recognition
+I. Attribute-based zero-shot learning
 ------
 
-In compositional zero-shot learning (CZSL), a model sees *sliced apple* and *ripe
-banana* during training and must recognize *sliced banana* at test time. The naive
-assumption --- that a composition is the sum of its parts --- breaks down because a state
-changes appearance depending on what it modifies: "sliced" looks nothing alike on an
-apple and on bread.
+Zero-shot learning transfers recognition from seen classes to unseen ones through a
+shared semantic space --- in practice, a vector of attributes per class. Everything rests
+on that vector being a faithful description of the images it stands for. It usually is
+not.
 
 ### The granularity of attributes — IAB, *IJCV 2024*
 
@@ -48,6 +47,15 @@ supplying the missing spatial grounding. Evaluated on four ZSL benchmarks under 
 and the harder generalized (GZSL) setting.
 [Code](https://github.com/LanchJL/IAB-GZSL) &middot;
 [Paper](https://doi.org/10.1007/s11263-024-02021-x)
+
+II. Compositional zero-shot learning
+------
+
+Compositional zero-shot learning (CZSL) raises the stakes: a model sees *sliced apple*
+and *ripe banana* during training and must recognize *sliced banana* at test time. The
+naive assumption --- that a composition is the sum of its parts --- breaks down because a
+state changes appearance depending on what it modifies. "Sliced" looks nothing alike on
+an apple and on bread.
 
 ### Compositional bias is a distribution problem — ProLT, *AAAI 2024*
 
@@ -107,7 +115,7 @@ compositional structure itself. Evaluated on MIT-States, UT-Zappos and C-GQA in 
 closed-world and open-world settings.
 [Code](https://github.com/LanchJL/CIA-CZSL)
 
-II. Extending to unseen domains — IMEC, *IJCV 2025*
+III. Extending to unseen domains — IMEC, *IJCV 2025*
 ------
 
 Language lets a model reach domains it has never seen: describe the target in words, and
@@ -131,7 +139,7 @@ classification**, and improves the source domain as well as the target.
 A companion paper (**ICRA 2026**) addresses the same task through language-guided
 attribute alignment and semantic consistency.
 
-III. Test-time adaptation of vision-language models
+IV. Test-time adaptation of vision-language models
 ------
 
 A pre-trained vision-language model carries broad knowledge but no guarantee about the
@@ -143,7 +151,7 @@ object prior as evidence to be regulated rather than noise to be removed.
 Six papers on these questions are currently under review; titles are listed under
 [Publications](/publications/).
 
-IV. Applied work — computational pathology
+V. Applied work — computational pathology
 ------
 
 I work on **multimodal pathology analysis for kidney transplantation**, in collaboration
