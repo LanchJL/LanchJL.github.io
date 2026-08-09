@@ -44,6 +44,39 @@ INTERESTS = ("Zero-shot and compositional learning &middot; "
              "cross-domain generalization &middot; "
              "multimodal medical image analysis")
 
+# --------------------------------------------------------------------------
+# Per-application variants.
+#
+# Deliberately narrow. Only two things change: which interests are named first,
+# and which first-author papers lead the selected list. Everything else — the
+# publication record, education, awards — is identical in every version,
+# because a CV that reshapes itself per reader is both a maintenance trap and
+# easy to catch. The tailoring that actually matters belongs in the cover
+# letter, not here.
+#
+#   python scripts/build_cv.py --target zheng-um
+# --------------------------------------------------------------------------
+
+TARGETS = {
+    "zheng-um": {
+        "note": "Prof. Zhedong Zheng, University of Macau. Stated interests: "
+                "data-centric AI, uncertainty estimation, AIGC, spatial "
+                "intelligence, object re-identification; robust learning for "
+                "retrieval, generative learning for data augmentation, "
+                "unsupervised domain adaptation.",
+        "interests": (
+            "Uncertainty estimation and test-time adaptation for vision-language "
+            "models &middot; unsupervised and zero-shot domain adaptation &middot; "
+            "data-centric approaches to long-tailed and imbalanced recognition "
+            "&middot; compositional generalization"),
+        # Lead with the domain-adaptation and data-viewpoint work rather than
+        # strict reverse chronology.
+        "lead": ["imbuing-enrichment-calibration-ijcv",
+                 "proximate-long-tail-czsl-aaai",
+                 "imaginary-connected-embedding-tpami"],
+    },
+}
+
 SUMMARY = """My research asks what a recognition model is actually being told to
 match, and whether that target is right. Zero-shot methods inherit a great deal of
 supervision without examining it &mdash; one attribute vector per class, an implicitly
@@ -236,11 +269,28 @@ footer { margin-top: 16px; font-size: 8.8pt; color: #777; text-align: right; }
 """
 
 
-def render():
+def render(target=None):
+    cfg = TARGETS.get(target, {}) if target else {}
+    if target and not cfg:
+        raise SystemExit("unknown target %r; known: %s"
+                         % (target, ", ".join(sorted(TARGETS))))
+
     pubs = load_publications()
     first = [p for p in pubs if p["_first"]]
     co = [p for p in pubs if not p["_first"]]
     ur = load_under_review()
+
+    interests = cfg.get("interests", INTERESTS)
+
+    # Promote the named papers to the front, keeping the rest in date order.
+    lead = cfg.get("lead", [])
+    if lead:
+        def rank(p):
+            for i, slug in enumerate(lead):
+                if slug in p.get("permalink", ""):
+                    return i
+            return len(lead)
+        first = sorted(first, key=rank)
 
     def pub_items(lst):
         out = []
@@ -364,19 +414,27 @@ def render():
 </html>
 """ % dict(
         name=NAME_EN, zh=NAME_ZH, css=CSS, position=POSITION, contact=contact,
-        interests=INTERESTS, summary=SUMMARY, education=edu,
+        interests=interests, summary=SUMMARY, education=edu,
         n_total=len(pubs), n_first=len(first), n_ur=len(ur),
         first=pub_items(first), co=pub_items(co), ur=ur_items,
         grants=grants, awards=awards, service=SERVICE, skills=skills,
         updated=datetime.date.today().strftime("%B %Y"),
     )
 
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    io.open(OUT, "w", encoding="utf-8").write(html)
-    print("wrote %s" % OUT)
+    out = OUT if not target else OUT.replace(".html", "-%s.html" % target)
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    io.open(out, "w", encoding="utf-8").write(html)
+    print("wrote %s" % out)
     print("  %d publications (%d first-author, %d co-authored), %d under review"
           % (len(pubs), len(first), len(co), len(ur)))
+    if cfg:
+        print("  target : %s" % cfg["note"])
+        print("  leading: %s" % ", ".join(cfg.get("lead", [])))
 
 
 if __name__ == "__main__":
-    render()
+    import sys
+    tgt = None
+    if "--target" in sys.argv:
+        tgt = sys.argv[sys.argv.index("--target") + 1]
+    render(tgt)
