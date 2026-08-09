@@ -79,27 +79,16 @@ TARGETS = {
 }
 
 SUMMARY = [
-    """A model is never shown the world. It is shown a description of it: a vector of
-    attributes standing in for a class, an implicit prior over what is likely, a loss
-    deciding which mistakes matter, a metric deciding what counts as close. Every one of
-    these is an approximation somebody made, and the field has largely agreed to treat
-    them as ground truth and spend its effort on the model instead.""",
-
-    """My work is a sequence of demonstrations that this is where generalization is
-    actually lost, and that repairing the description is cheaper than enlarging the
-    model. One attribute vector stands for every image of a class, discarding everything
-    that tells those images apart. Every wrong answer is punished identically, whether it
-    was nearly right or absurd. Language used to describe an unseen domain pulls features
-    away from where that domain&rsquo;s images actually live.""",
-
-    """<i>ProLT</i> (AAAI 2024) is the clearest instance. The visual bias the field had
-    treated as a defect of representation turns out to approximate a long-tailed
-    distribution &mdash; which makes it correctable in closed form by a class prior, and
-    costs nothing at inference.""",
-
-    """Followed far enough, this line runs out of supervision to repair. At test time
-    there is none: the distribution has moved, no labels are coming, and the model has to
-    construct its own evidence from the stream it is given. That is my current focus.""",
+    """I work on generalization under distribution shift &mdash; recognizing categories,
+    compositions and domains absent from training, and adapting a pre-trained model at
+    test time once the distribution has moved. My results usually come from the
+    supervision side rather than the model side: a class-level attribute vector too
+    coarse to describe its own images, an implicit prior that is not uniform, a loss that
+    treats a near miss and an absurd one alike. <i>ProLT</i> (AAAI 2024) is
+    representative &mdash; a bias the field had treated as a defect of representation
+    turns out to approximate a long-tailed distribution, correctable in closed form and
+    free at inference. Current work is on test-time adaptation of vision-language models,
+    where there is no supervision left to correct at all.""",
 ]
 
 EDUCATION = [
