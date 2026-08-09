@@ -92,11 +92,11 @@ SUMMARY = [
 ]
 
 EDUCATION = [
-    ("2023 &ndash; 2027 (expected)",
+    ("2023 &ndash; 2027",
      "Ph.D. in Computer Science and Technology",
      "Nanjing University of Science and Technology",
-     "Advisor: Prof. Haofeng Zhang. Direct master&rsquo;s-to-Ph.D. track; "
-     "dissertation proposal defended December 2024."),
+     "Advisor: Prof. Haofeng Zhang. Direct master&rsquo;s-to-Ph.D. track; proposal "
+     "defended December 2024, dissertation defence expected March 2027."),
     ("2021 &ndash; 2023",
      "M.Sc. in Pattern Recognition and Intelligent Systems",
      "Nanjing University of Science and Technology",

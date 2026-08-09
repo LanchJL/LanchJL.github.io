@@ -11,7 +11,7 @@ redirect_from:
 
 I am a Ph.D. candidate in Computer Science and Technology at the **School of Computer
 Science and Engineering, Nanjing University of Science and Technology (NJUST)**,
-advised by **Prof. Haofeng Zhang**. I expect to defend in **2027**.
+advised by **Prof. Haofeng Zhang**. I expect to defend in **March 2027**.
 
 I work on generalization to what a model has never seen --- zero-shot and compositional
 recognition, and more recently the test-time adaptation of vision-language models.

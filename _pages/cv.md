@@ -31,9 +31,10 @@ Nanjing University of Science and Technology, Nanjing, China
 Education
 ======
 
-* **Ph.D., Computer Science and Technology**, 2023 -- 2027 (expected)
+* **Ph.D., Computer Science and Technology**, 2023 -- 2027
   Nanjing University of Science and Technology &middot; Advisor: Prof. Haofeng Zhang
-  Direct master's-to-Ph.D. track; dissertation proposal defended December 2024.
+  Direct master's-to-Ph.D. track; proposal defended December 2024, dissertation
+  defence expected March 2027.
 
 * **M.Sc., Pattern Recognition and Intelligent Systems**, 2021 -- 2023
   Nanjing University of Science and Technology
