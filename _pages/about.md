@@ -19,25 +19,29 @@ or look through my [CV](/cv/).
 Research
 ======
 
-My work follows one trajectory: **from static semantic alignment to dynamic structural
-reasoning.** The question underneath it is how a recognition model generalizes to
-categories, compositions, and domains it never saw during training --- and, increasingly,
-how it can keep correcting itself *at test time*, when the training distribution is
-already behind it.
+My work keeps returning to one question: **what is a recognition model actually being
+told to match, and is that target right?**
 
-Five papers mark that trajectory:
+Zero-shot methods inherit a great deal of supervision without examining it --- one
+attribute vector per class, an implicitly uniform prior over compositions, an equal
+penalty for every wrong answer, distance measures that never speak to each other. Each
+of these is an assumption, and each costs more generalization than model capacity does.
+Most of my papers consist of locating one such assumption, showing what it costs, and
+replacing it --- usually without adding parameters at inference time.
 
-| | Problem | Contribution |
+| | The assumption | What replaces it |
 |---|---|---|
-| **1** | Attributes are modelled at class level, erasing within-class variation | Near-instance-level attribute bottleneck — *IJCV 2024* |
-| **2** | Compositional visual bias is treated purely as a representation defect | It closely approximates a long-tailed distribution, and is correctable by a derivable class prior — *AAAI 2024* |
-| **3** | States and objects treated as independent axes | Imaginary-connected embedding in complex space — *TPAMI 2025* |
-| **4** | Every wrong composition is penalized equally, whatever its affinity to the true one | Hierarchical supervision through affinity cliques — *Pattern Recognition 2026* |
-| **5** | Unseen domains cause manifold divergence and semantic collapse | Imbuing–Enrichment–Calibration — *IJCV 2025* |
+| **1** | One attribute vector describes every image of a class | Near-instance-level attributes, grounded in the regions they describe — *IJCV 2024* |
+| **2** | Compositional bias is a defect of representation | It closely approximates a long-tailed distribution, correctable by a derivable class prior — *AAAI 2024* |
+| **3** | A state and its object are independent axes | Complex space, where phase carries their dependency and primitives stay independent — *TPAMI 2025* |
+| **4** | Every wrong composition is equally wrong | Affinity cliques, and one-to-many visual–semantic alignment — *Pattern Recognition 2026* |
+| **5** | Language can carry features into an unseen domain untouched | Reverse the style mining, then calibrate what survives — *IJCV 2025* |
 
-My current focus is **test-time adaptation of vision-language models** --- how a
-pre-trained VLM should reorganize its own evidence when it meets a distribution it was
-never trained on, without labels and without a second training pass.
+Pushed to its limit, this line arrives at **test time**, where there is no supervision
+left to correct and the model has to construct its own. That is what I work on now: how
+a pre-trained vision-language model should reorganize its own evidence --- unlabelled,
+online, and without a second training pass --- when it meets a distribution nobody
+prepared it for.
 
 Publications
 ======

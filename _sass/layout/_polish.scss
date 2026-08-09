@@ -1,0 +1,240 @@
+/* ==========================================================================
+   Typographic refinement layered over the `dirt` theme.
+   --------------------------------------------------------------------------
+   `dirt` is deliberately monochrome, which reads as serious but leaves the
+   page flat. This file does three things it does not: gives the text a
+   comfortable measure and rhythm, makes links legible without shouting, and
+   gives the Chinese tree its own font stack and line height — Chinese set at
+   a Latin line height looks cramped.
+
+   Loaded last in assets/css/main.scss, so it wins on equal specificity.
+   ========================================================================== */
+
+:root {
+  /* One restrained accent. Links rest near the text colour and only take the
+     accent on hover, so the page stays monochrome until you reach for it. */
+  --accent           : #31556f;
+  --accent-strong    : #1f3a4d;
+  --rule             : rgba(52, 52, 52, 0.14);
+  --rule-strong      : rgba(52, 52, 52, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent         : #8fb6d0;
+    --accent-strong  : #b6d3e6;
+    --rule           : rgba(230, 230, 230, 0.16);
+    --rule-strong    : rgba(230, 230, 230, 0.32);
+  }
+}
+
+/* ---------- reading rhythm ---------- */
+
+.page__content {
+  font-size: 1rem;
+  line-height: 1.75;
+
+  p {
+    margin-bottom: 1.25em;
+  }
+
+  /* Section headings. academicpages renders `======` as h1, so h1 is a
+     section rule here, not the page title. */
+  h1 {
+    margin-top: 2.2em;
+    margin-bottom: 0.7em;
+    padding-bottom: 0.28em;
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h2 {
+    margin-top: 1.9em;
+    margin-bottom: 0.5em;
+    font-size: 1.18em;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    border-bottom: none;
+  }
+
+  h3 {
+    margin-top: 1.7em;
+    margin-bottom: 0.45em;
+    font-size: 1.02em;
+    font-weight: 700;
+  }
+
+  h1:first-child,
+  h2:first-child {
+    margin-top: 0.4em;
+  }
+}
+
+/* ---------- links ---------- */
+
+.page__content a:not(.btn) {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color 0.12s ease, text-decoration-color 0.12s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+}
+
+/* ---------- tables ---------- */
+/* The About page leads with a table, so it carries real visual weight. */
+
+.page__content table {
+  width: 100%;
+  margin: 1.6em 0;
+  border-collapse: collapse;
+  font-size: 0.94em;
+  line-height: 1.6;
+  border: none;
+  display: table;
+
+  th {
+    padding: 0.5em 0.9em 0.5em 0;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.86em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+
+  td {
+    padding: 0.72em 0.9em 0.72em 0;
+    vertical-align: top;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* The leading numeral column. */
+  td:first-child,
+  th:first-child {
+    width: 2.2em;
+    padding-right: 0.6em;
+    opacity: 0.55;
+    font-variant-numeric: tabular-nums;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:hover td {
+    background: rgba(127, 127, 127, 0.045);
+  }
+}
+
+/* Wide tables must scroll inside themselves, never widen the page. */
+.page__content .table-wrap {
+  overflow-x: auto;
+}
+
+/* ---------- publication and CV lists ---------- */
+
+.archive__item-citation {
+  margin: 0.25em 0 0.35em;
+  font-size: 0.92em;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.archive__item-links {
+  margin: 0 0 0.4em;
+  font-size: 0.88em;
+
+  a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-strong);
+
+    &:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+  }
+}
+
+.archive__item-title {
+  margin-top: 1.4em;
+  margin-bottom: 0.15em;
+  font-size: 1.02em;
+  line-height: 1.45;
+  border-bottom: none;
+}
+
+.under-review-list {
+  li {
+    margin-bottom: 0.9em;
+    line-height: 1.6;
+  }
+}
+
+.under-review-note {
+  font-size: 0.88em;
+  opacity: 0.62;
+}
+
+/* ---------- sidebar ---------- */
+
+.author__avatar img {
+  border-radius: 3px;
+  border: 1px solid var(--rule);
+  max-width: 160px;
+}
+
+.author__name {
+  font-size: 1.05em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.author__bio {
+  font-size: 0.9em;
+  line-height: 1.6;
+  opacity: 0.82;
+}
+
+/* ---------- Chinese tree ---------- */
+/* Enabled by the per-page `lang` attribute set in _layouts/default.html. */
+
+html:lang(zh-Hans) {
+  .page__content,
+  .author__bio,
+  .archive__item-citation {
+    font-family: "PingFang SC", "Microsoft YaHei", "Source Han Sans SC",
+                 "Noto Sans CJK SC", "Hiragino Sans GB", sans-serif;
+    line-height: 1.9;
+    letter-spacing: 0.012em;
+  }
+
+  .page__content {
+    h1 { letter-spacing: 0.01em; }
+    h2 { letter-spacing: 0.01em; }
+    h3 { letter-spacing: 0.01em; }
+
+    /* Chinese has no inter-word spaces, so an underline hugging the glyphs is
+       harder to read than in Latin text. Push it further down. */
+    a:not(.btn) {
+      text-underline-offset: 0.24em;
+    }
+  }
+
+  .page__content table {
+    line-height: 1.75;
+  }
+}

@@ -7,14 +7,20 @@ nav: main
 lang_alt: /zh/research/
 ---
 
-From static semantic alignment to dynamic structural reasoning
+Questioning what the model is told
 ======
 
 A recognition model trained on a fixed label set fails the moment the world offers
-something outside it. My work traces that failure from its most static form --- a
-mismatch between an image and a hand-written attribute vector --- to its most dynamic
-one, where a model must reorganize its own evidence at test time, on a distribution
-nobody labelled.
+something outside it. The usual response is to give the model more --- more parameters,
+more modules, more data. My work asks a cheaper question first: **is the supervision
+itself correct?**
+
+Zero-shot learning turns out to be full of inherited assumptions that nobody re-examines.
+One attribute vector stands in for a whole class. Every composition is implicitly assumed
+equally likely. Every wrong answer is punished the same amount. Attribute, object and
+composition are measured on three scales that never meet. Each of these limits
+generalization more than capacity does --- and each can be replaced, usually without
+costing anything at inference time.
 
 Every project below has released code.
 

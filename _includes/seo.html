@@ -48,6 +48,19 @@
   <link rel="canonical" href="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
 
+{% comment %}
+  The block below is gated on a Twitter username, so with none configured the
+  page emitted no twitter:card at all — and several scrapers (not only X) read
+  that tag to decide between a large card and a small thumbnail. Declare the
+  card independently of whether an account exists.
+{% endcomment %}
+{% unless site.twitter.username %}
+  {% if site.og_image %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ site.og_image | prepend: "/images/" | prepend: base_path | absolute_url }}">
+  {% endif %}
+{% endunless %}
+
 {% if site.twitter.username %}
   <meta name="twitter:site" content="@{{ site.twitter.username | replace: "@", "" }}">
   <meta name="twitter:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
@@ -113,7 +126,14 @@
 <!-- end SEO -->
 
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
-<meta property="og:locale" content="{{ site.locale | default: "en" }}">
+{% comment %} Bilingual: the Chinese tree must not announce itself as English. {% endcomment %}
+{% if page.nav == 'zh' %}
+  <meta property="og:locale" content="zh_CN">
+  {% if page.lang_alt %}<meta property="og:locale:alternate" content="en_US">{% endif %}
+{% else %}
+  <meta property="og:locale" content="{{ site.locale | default: "en-US" | replace: "-", "_" }}">
+  {% if page.lang_alt %}<meta property="og:locale:alternate" content="zh_CN">{% endif %}
+{% endif %}
 <meta property="og:site_name" content="{{ site.title }}"> 
 <meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
 {% if page.date %}
@@ -139,9 +159,19 @@
   </script>
 {% endif %}
 
+{% comment %}
+  Upstream only emitted og:image for pages carrying their own header image,
+  so a site-wide og_image reached twitter:image but never og:image itself —
+  which is the tag WeChat, Slack and mail clients actually read. Fall back to
+  it here. Paths are absolute so scrapers that ignore <base> still resolve.
+{% endcomment %}
 {% if page.header.image %}
-  <meta property="og:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+  <meta property="og:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path | absolute_url }}{% endif %}">
 {% elsif page.header.overlay_image %}
-  <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+  <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path | absolute_url }}{% endif %}">
+{% elsif site.og_image %}
+  <meta property="og:image" content="{{ site.og_image | prepend: "/images/" | prepend: base_path | absolute_url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 {% endif %}
 <!-- end Open Graph protocol -->
