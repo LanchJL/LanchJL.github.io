@@ -279,16 +279,14 @@ def render():
     skills = "\n".join(
         '<tr><td class="k">%s</td><td>%s</td></tr>' % (k, v) for k, v in SKILLS)
 
-    # Unlike the website, the CV names the target venue. The site withholds it
-    # because publicising a submission to a double-blind venue during review is
-    # a risk; a CV emailed to a specific person is not publicity.
+    # The target venue is deliberately not printed, here or on the site. Several
+    # of these are under double-blind review, and a CV circulates further than
+    # the person it was sent to. `venue` stays in _data/under_review.yml for
+    # reference; it is simply not rendered.
     def ur_line(i):
         who = "<b>Chenyi Jiang</b> et al. " if str(i.get("first_author", "")).lower() == "true" else ""
-        status = i.get("status_en", "Under review")
-        venue = i.get("venue", "")
-        tail = "%s, <i>%s</i>" % (status, venue) if venue else status
         return "<li>%s&ldquo;%s.&rdquo; <span class=\"links\">%s</span></li>" % (
-            who, i["title"], tail)
+            who, i["title"], i.get("status_en", "Under review"))
 
     ur_items = "\n".join(ur_line(i) for i in ur)
 

@@ -145,11 +145,11 @@ IV. Test-time adaptation of vision-language models
 A pre-trained vision-language model carries broad knowledge but no guarantee about the
 distribution it will actually meet. My current work asks how such a model should
 **reorganize its own evidence at test time** --- unlabelled, online, and without a second
-training pass. A related line returns to compositional zero-shot learning, treating an
-object prior as evidence to be regulated rather than noise to be removed.
+training pass. A related line continues the compositional work of section II.
 
-Six papers on these questions are currently under review; titles are listed under
-[Publications](/publications/).
+Six papers on these questions are currently under review. They are listed under
+[Publications](/publications/); I am happy to discuss them by email, but they are not
+described further here while review is ongoing.
 
 V. Applied work — multimodal kidney transplant pathology
 ------

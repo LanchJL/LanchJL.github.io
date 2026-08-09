@@ -16,11 +16,11 @@ lang_alt: /publications/
 </p>
 
 <h2>在投</h2><hr />
+{% comment %} 同英文版：不渲染投稿地与方法一句话说明，避免双盲评审期被检索命中。 {% endcomment %}
 <ul class="under-review-list">
 {% for p in site.data.under_review %}
   <li>
-    <strong>{{ p.title }}</strong><br />
-    <span class="under-review-note">{{ p.note_zh }}</span>
+    <strong>{{ p.title }}</strong>
     &mdash; <em>{{ p.status_zh }}</em>
   </li>
 {% endfor %}

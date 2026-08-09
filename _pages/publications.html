@@ -16,11 +16,15 @@ lang_alt: /zh/publications/
 </p>
 
 <h2>Under review</h2><hr />
+{% comment %}
+  Neither the venue nor the one-line method note is rendered. Several of these
+  are under double-blind review, and a distinctive phrase is exactly what a
+  reviewer would search. Both fields stay in _data/under_review.yml.
+{% endcomment %}
 <ul class="under-review-list">
 {% for p in site.data.under_review %}
   <li>
-    <strong>{{ p.title }}</strong><br />
-    <span class="under-review-note">{{ p.note_en }}</span>
+    <strong>{{ p.title }}</strong>
     &mdash; <em>{{ p.status_en }}</em>
   </li>
 {% endfor %}
