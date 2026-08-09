@@ -13,8 +13,48 @@ I am a Ph.D. candidate in Computer Science and Technology at the **School of Com
 Science and Engineering, Nanjing University of Science and Technology (NJUST)**,
 advised by **Prof. Haofeng Zhang**. I expect to defend in **2027**.
 
-You can reach me at [jiangchenyi@njust.edu.cn](mailto:jiangchenyi@njust.edu.cn),
-or look through my [CV](/cv/).
+I work on generalization to what a model has never seen --- zero-shot and compositional
+recognition, and more recently the test-time adaptation of vision-language models.
+**14 peer-reviewed papers, 6 as first author**, including *IEEE TPAMI*, two in *IJCV*,
+*AAAI*, *IJCAI* and two in *Pattern Recognition*; six further papers are under review.
+
+Reach me at [jiangchenyi@njust.edu.cn](mailto:jiangchenyi@njust.edu.cn), or read the
+[CV](/cv/).
+
+Education
+======
+
+* **2023 – 2027** (expected) &middot; Ph.D., Computer Science and Technology &middot;
+  *Nanjing University of Science and Technology*
+* **2021 – 2023** &middot; M.Sc., Pattern Recognition and Intelligent Systems &middot;
+  *Nanjing University of Science and Technology*
+* **2017 – 2021** &middot; B.Sc., Mathematics and Applied Mathematics &middot;
+  *Fuzhou University*
+
+Direct master's-to-Ph.D. track, advised by Prof. Haofeng Zhang. Admitted to NJUST by
+national postgraduate recommendation.
+
+Selected publications
+======
+
+First-author work. The [full list](/publications/) has all 14 papers and the six under
+review.
+
+{% assign firsts = site.publications | where: "first_author", true | sort: "date" | reverse %}
+{% for p in firsts %}
+- **{{ p.title }}**<br />
+  <span class="pub-venue">{{ p.venue_short }}</span>{% if p.codeurl %} &middot; [code]({{ p.codeurl }}){% endif %}{% if p.paperurl %} &middot; [paper]({{ p.paperurl }}){% endif %}
+{% endfor %}
+
+Awards
+======
+
+* **National Scholarship for Doctoral Students**, 2025
+* **Outstanding Doctoral Candidate Program**, NJUST --- selected 2025, passed the 2026
+  review with continued funding
+* **First-Class Academic Scholarship**, NJUST --- 2023, 2024, 2025
+* **Jiangsu Provincial Graduate Research and Practice Innovation Program** --- principal
+  investigator, completed
 
 Research
 ======
@@ -41,16 +81,7 @@ Pushed to its limit, this line arrives at **test time**, where there is no super
 left to correct and the model has to construct its own. That is what I work on now: how
 a pre-trained vision-language model should reorganize its own evidence --- unlabelled,
 online, and without a second training pass --- when it meets a distribution nobody
-prepared it for.
-
-Publications
-======
-
-**14 peer-reviewed papers, 6 as first author**, including *IEEE TPAMI*, two in *IJCV*,
-*AAAI*, *IJCAI* and two in *Pattern Recognition*. Six further papers are under review.
-
-Full list on the [Publications](/publications/) page, or on
-[Google Scholar](https://scholar.google.com/citations?user=R9ruXHMAAAAJ).
+prepared it for. See [Research](/research/) for the longer account.
 
 News
 ======

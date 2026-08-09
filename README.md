@@ -67,6 +67,24 @@ collection, so adding the file is the only step required.
 
 ## Exporting the CV as PDF
 
-Open `/cv/` (or `/zh/cv/`) and use the browser's Print → Save as PDF. The print
-stylesheet hides the navigation, sidebar and footer, and expands the content to the
-full page width.
+Two routes, for two audiences.
+
+**From the site.** Open `/cv/` (or `/zh/cv/`) and use the browser's Print → Save as
+PDF. The print stylesheet hides the navigation and sidebar and expands the content to
+the full page width.
+
+**The academic CV.** For postdoc applications, generate the standalone document:
+
+```
+python scripts/build_cv.py
+```
+
+It reads `_publications/` and `_data/under_review.yml`, so it cannot drift out of step
+with the site, and writes `../resume/CV-Chenyi-Jiang.html`. Print that to PDF.
+
+The one deliberate difference from the website: the CV **names the target venue** for
+papers under review. The site withholds it, because publicising a submission to a
+double-blind venue during review is a risk that a CV emailed to one person is not.
+
+Content with no home in the site data — education, awards, service, skills — is
+declared at the top of `scripts/build_cv.py`.

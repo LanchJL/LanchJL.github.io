@@ -9,8 +9,42 @@ lang_alt: /
 我是**南京理工大学计算机科学与工程学院**计算机科学与技术专业博士研究生，
 导师为**张浩峰教授**，预计 **2027 年**毕业。
 
+我的研究关注模型如何泛化到从未见过的事物——零样本与组合零样本识别，
+以及近期的视觉语言模型测试时自适应。
+已发表/录用同行评议论文 **14 篇，其中第一作者 6 篇**，
+包括 *IEEE TPAMI*、*IJCV*（2 篇）、*AAAI*、*IJCAI* 与 *Pattern Recognition*（2 篇）；
+另有 6 篇在投。
+
 欢迎通过 [jiangchenyi@njust.edu.cn](mailto:jiangchenyi@njust.edu.cn) 与我联系，
 或查看我的[简历](/zh/cv/)。
+
+教育背景
+======
+
+* **2023 – 2027**（预计）&middot; 博士，计算机科学与技术 &middot; *南京理工大学*
+* **2021 – 2023** &middot; 硕士，模式识别与智能系统 &middot; *南京理工大学*
+* **2017 – 2021** &middot; 学士，数学与应用数学 &middot; *福州大学*
+
+硕博连读，导师张浩峰教授。本科获推荐免试资格保送南京理工大学。
+
+代表论文
+======
+
+以下为第一作者工作。[完整列表](/zh/publications/)含全部 14 篇及 6 篇在投。
+
+{% assign firsts = site.publications | where: "first_author", true | sort: "date" | reverse %}
+{% for p in firsts %}
+- **{{ p.title }}**<br />
+  <span class="pub-venue">{{ p.venue_short }}</span>{% if p.codeurl %} &middot; [代码]({{ p.codeurl }}){% endif %}{% if p.paperurl %} &middot; [论文]({{ p.paperurl }}){% endif %}
+{% endfor %}
+
+奖励荣誉
+======
+
+* **博士研究生国家奖学金**，2025 年
+* **优秀博士培养对象**，南京理工大学——2025 年入选，2026 年考核通过并继续资助
+* **一等学业奖学金**，南京理工大学——2023、2024、2025 连续三年
+* **江苏省研究生科研与实践创新计划**——主持，已结题
 
 研究方向
 ======
@@ -37,16 +71,7 @@ lang_alt: /
 那里已经没有监督可供修正，模型必须自己构造。
 这正是我当前的工作：一个预训练视觉语言模型在遇到无人为它准备过的分布时，
 如何在无标签、在线、且不进行第二次训练的前提下，重新组织自己的证据。
-
-学术成果
-======
-
-已发表/录用同行评议论文 **14 篇，其中第一作者 6 篇**，
-包括 *IEEE TPAMI*、*IJCV*（2 篇）、*AAAI*、*IJCAI* 与 *Pattern Recognition*（2 篇）；
-另有 6 项成果在投。
-
-完整列表见[论文](/zh/publications/)页面或
-[Google Scholar](https://scholar.google.com/citations?user=R9ruXHMAAAAJ)。
+详细论述见[研究](/zh/research/)页面。
 
 近况
 ======

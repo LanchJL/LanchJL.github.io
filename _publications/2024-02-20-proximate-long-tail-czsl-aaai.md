@@ -6,6 +6,7 @@ category: conferences
 permalink: /publication/2024-02-20-proximate-long-tail-czsl-aaai
 excerpt: 'Shows that compositional visual bias approximates a long-tailed distribution, and derives a class-prior correction from it.'
 codeurl: 'https://github.com/LanchJL/ProLT'
+venue_short: 'AAAI 2024'
 date: 2024-02-20
 venue: 'AAAI Conference on Artificial Intelligence (AAAI), 38(3)'
 paperurl: 'https://ojs.aaai.org/index.php/AAAI/article/view/28026'

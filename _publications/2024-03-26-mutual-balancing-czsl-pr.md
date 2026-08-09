@@ -6,6 +6,7 @@ category: manuscripts
 permalink: /publication/2024-03-26-mutual-balancing-czsl-pr
 excerpt: 'Recasts CZSL as an unbalanced multi-label problem and mutually balances the state and object branches.'
 codeurl: 'https://github.com/LanchJL/MUST'
+venue_short: 'Pattern Recognition 2024'
 date: 2024-03-26
 venue: 'Pattern Recognition, vol. 152, art. 110451'
 paperurl: 'https://doi.org/10.1016/j.patcog.2024.110451'
