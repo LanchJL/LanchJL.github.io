@@ -74,10 +74,11 @@ optimization, and inference levels while keeping the evidence intact.
 Applied work
 ------
 
-Alongside the methodological line, I work on a collaboration with Fudan University on
-**multimodal pathology analysis for kidney transplantation**, where I am responsible
-for the full model implementation, training and evaluation on gigapixel whole-slide
-images. It is a useful reality check: pathology
+Alongside the methodological line, I work on **multimodal pathology analysis for
+kidney transplantation**, in collaboration with the Department of Kidney
+Transplantation, Zhongshan Hospital, Fudan University. I am responsible for the full
+model implementation, training and evaluation on gigapixel whole-slide images. It is a
+useful reality check: pathology
 data presents severe class imbalance and long-tailed lesion categories --- the same
 structure my methodological work addresses, without the convenience of a clean
 benchmark.

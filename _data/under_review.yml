@@ -41,6 +41,14 @@
   note_en: "sorting-induced exclusionary distributions; suppressing wrong candidates"
   note_zh: "排序排除分布 · 错误候选抑制"
   venue:
-  status_en: "In preparation"
-  status_zh: "待投稿"
+  status_en: "Under review"
+  status_zh: "在投"
+  first_author: true
+
+- title: "POSS: Learning from Partially Observed Object States for Compositional Zero-Shot Learning"
+  note_en: "partially observed object states; compositional generalization"
+  note_zh: "部分可观测物体状态 · 组合泛化"
+  venue:
+  status_en: "Under review"
+  status_zh: "在投"
   first_author: true
