@@ -101,9 +101,9 @@ venue tier, so each paper carries an explicit CCF label, and the research summar
 dropped (that belongs in the research plan, not the CV). Education, awards and skills
 exist separately in each script — change one and change the other.
 
-The one deliberate difference from the website: the CV **names the target venue** for
-papers under review. The site withholds it, because publicising a submission to a
-double-blind venue during review is a risk that a CV emailed to one person is not.
+Neither CV names the target venue for a paper under review, and neither does the site.
+Several are under double-blind review, and a CV gets forwarded further than the person
+it was sent to. The venue stays in `_data/under_review.yml`, unrendered.
 
 Content with no home in the site data — education, awards, service, skills — is
 declared at the top of `scripts/build_cv.py`.
