@@ -27,31 +27,34 @@ OUT = os.path.join(os.path.dirname(ROOT), "resume", "CV-Chenyi-Jiang-zh.html")
 
 # 每篇论文的分级标注。原则：取「准确且最有利」的那个体系。
 #
-#   - CCF-A 已是最高等级，直接用；影响因子作为补充。
-#   - CCF-B 或 CCF 未收录的刊物，改用 JCR 分区与影响因子——ESWA 这类
-#     不在 CCF 目录里，只标 CCF 会显得像未被收录。
-#   - 中科院分区未标注：答辩材料里给的是 JCR 分区（Q1 为前 25%），
-#     与中科院分区（一区为前 5%）不是一回事，没有依据不硬填。
+# 中科院分区数据于 2026-08 从 LetPub 逐本核对（2025 年 3 月升级版）。
+# 核对中有两处与直觉相反，不要凭印象改：
 #
-# IF 数据取自 2026 年优秀博士培养对象考核答辩材料。影响因子每年更新，
-# 投递前请复核。
+#   - IJCV 是计算机科学 2 区且非 TOP，所以两篇 IJCV 用 CCF-A 更有利；
+#   - Pattern Recognition 与 ESWA 都是 1 区 TOP，远好于 CCF-B / 未收录。
+#
+# 影响因子一律不标：核对时各源数字互相矛盾（PR 出现 7.6 / 8.6 / 8.98
+# 三个值），且 IF 每年更新，写错是可查的。分区本身已足够。
 #
 # 格式：slug -> (主标签, 补充说明)
 TIER = {
-    "imaginary-connected-embedding-tpami": ("CCF-A", "IF 23.6"),
-    "instance-attribute-bottleneck-ijcv": ("CCF-A", "IF 19.5"),
-    "imbuing-enrichment-calibration-ijcv": ("CCF-A", "IF 11.6"),
+    # CCF-A，其中仅 TPAMI 同时是中科院一区 TOP
+    "imaginary-connected-embedding-tpami": ("CCF-A", "中科院一区 TOP"),
+    "instance-attribute-bottleneck-ijcv": ("CCF-A", ""),
+    "imbuing-enrichment-calibration-ijcv": ("CCF-A", ""),
     "proximate-long-tail-czsl-aaai": ("CCF-A", ""),
     "evolutionary-gzsl-ijcai": ("CCF-A", ""),
-    "mutual-balancing-czsl-pr": ("CCF-B", "JCR Q1 · IF 8.0"),
-    "clique-inter-class-affinity-czsl": ("CCF-B", "JCR Q1 · IF 7.6"),
-    "contextual-interaction-adversarial-tomm": ("CCF-B", "JCR Q1 · IF 6.0"),
+    # 中科院一区 TOP 强于 CCF-B / 未被 CCF 收录
+    "mutual-balancing-czsl-pr": ("中科院一区", "TOP · CCF-B"),
+    "clique-inter-class-affinity-czsl": ("中科院一区", "TOP · CCF-B"),
+    "spatial-frequency-czsl-eswa": ("中科院一区", "TOP"),
+    "text-vision-fusion-czsl": ("中科院一区", "TOP"),
+    # 中科院分区偏低（TOMM 三区），CCF 更有利
+    "contextual-interaction-adversarial-tomm": ("CCF-B", ""),
     "language-guided-attribute-alignment-icra": ("CCF-B", ""),
-    "spatial-frequency-czsl-eswa": ("JCR Q1", "IF 7.5"),
-    "text-vision-fusion-czsl": ("JCR Q1", "IF 7.5"),
-    "calibrate-prototypes-few-shot": ("JCR Q1", "IF 4.3"),
-    # NCA(JCR Q2)与 ACCV(CCF-C)故意留空：中文简历不必每篇都标分级，
-    # 空着是中性的，标出来反而主动传达"低档"。两篇均为二作，标了无收益。
+    "calibrate-prototypes-few-shot": ("JCR Q1", ""),
+    # 留空：中文简历不必每篇都标，空着是中性的，标 CCF-C / 三区反而
+    # 主动传达"低档"。两篇均为二作。
     "multi-domain-attribute-updater-gzsl": ("", ""),
     "same-tail-attribute-prototype-accv": ("", ""),
 }
@@ -144,7 +147,7 @@ p { margin: 0 0 6px; }
 
 ol.pubs { margin: 0; padding-left: 20px; }
 ol.pubs li { margin-bottom: 5px; break-inside: avoid; page-break-inside: avoid; }
-.tag { display: inline-block; font-size: 8.4pt; font-weight: 600; color: #26455c;
+.tag { display: inline-block; font-size: 8.2pt; white-space: nowrap; font-weight: 600; color: #26455c;
        border: 0.6pt solid #26455c; border-radius: 2px; padding: 0 4px; margin-right: 5px; }
 .tier-extra { font-size: 8.4pt; color: #777; margin-right: 5px; }
 .links { font-size: 8.6pt; color: #666; }
