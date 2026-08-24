@@ -4,7 +4,8 @@
 论文数据从 build_cv.py 复用，因此不会与英文版和网站脱节。
 中文版与英文版的差别不只是语言：
 
-  - 国内高校看刊物层次，所以每条论文显式标注 CCF 分类；
+  - 国内高校先扫刊物层次，所以每条论文标注「准确且最有利」的分级
+    （CCF 优先，CCF 未收录或等级偏低时改用 JCR 分区与影响因子）；
   - 不写英文版那段研究陈述（那属于研究计划，不属于简历）；
   - 奖励荣誉与主持项目的位置提前。
 
@@ -24,19 +25,35 @@ from build_cv import load_publications, load_under_review, to_pdf  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(os.path.dirname(ROOT), "resume", "CV-Chenyi-Jiang-zh.html")
 
-# 按 CCF 推荐目录标注（全国通用）。学校自定的 A/B 类各校不同，若目标单位
-# 看的是校定分类，改这里即可。目录未收录的刊物留空，不硬凑。
-CCF = {
-    "imaginary-connected-embedding-tpami": "CCF-A",
-    "instance-attribute-bottleneck-ijcv": "CCF-A",
-    "imbuing-enrichment-calibration-ijcv": "CCF-A",
-    "proximate-long-tail-czsl-aaai": "CCF-A",
-    "evolutionary-gzsl-ijcai": "CCF-A",
-    "mutual-balancing-czsl-pr": "CCF-B",
-    "clique-inter-class-affinity-czsl": "CCF-B",
-    "contextual-interaction-adversarial-tomm": "CCF-B",
-    "language-guided-attribute-alignment-icra": "CCF-B",
-    "same-tail-attribute-prototype-accv": "CCF-C",
+# 每篇论文的分级标注。原则：取「准确且最有利」的那个体系。
+#
+#   - CCF-A 已是最高等级，直接用；影响因子作为补充。
+#   - CCF-B 或 CCF 未收录的刊物，改用 JCR 分区与影响因子——ESWA 这类
+#     不在 CCF 目录里，只标 CCF 会显得像未被收录。
+#   - 中科院分区未标注：答辩材料里给的是 JCR 分区（Q1 为前 25%），
+#     与中科院分区（一区为前 5%）不是一回事，没有依据不硬填。
+#
+# IF 数据取自 2026 年优秀博士培养对象考核答辩材料。影响因子每年更新，
+# 投递前请复核。
+#
+# 格式：slug -> (主标签, 补充说明)
+TIER = {
+    "imaginary-connected-embedding-tpami": ("CCF-A", "IF 23.6"),
+    "instance-attribute-bottleneck-ijcv": ("CCF-A", "IF 19.5"),
+    "imbuing-enrichment-calibration-ijcv": ("CCF-A", "IF 11.6"),
+    "proximate-long-tail-czsl-aaai": ("CCF-A", ""),
+    "evolutionary-gzsl-ijcai": ("CCF-A", ""),
+    "mutual-balancing-czsl-pr": ("CCF-B", "JCR Q1 · IF 8.0"),
+    "clique-inter-class-affinity-czsl": ("CCF-B", "JCR Q1 · IF 7.6"),
+    "contextual-interaction-adversarial-tomm": ("CCF-B", "JCR Q1 · IF 6.0"),
+    "language-guided-attribute-alignment-icra": ("CCF-B", ""),
+    "spatial-frequency-czsl-eswa": ("JCR Q1", "IF 7.5"),
+    "text-vision-fusion-czsl": ("JCR Q1", "IF 7.5"),
+    "calibrate-prototypes-few-shot": ("JCR Q1", "IF 4.3"),
+    # NCA(JCR Q2)与 ACCV(CCF-C)故意留空：中文简历不必每篇都标分级，
+    # 空着是中性的，标出来反而主动传达"低档"。两篇均为二作，标了无收益。
+    "multi-domain-attribute-updater-gzsl": ("", ""),
+    "same-tail-attribute-prototype-accv": ("", ""),
 }
 
 NAME = "江宸逸"
@@ -129,6 +146,7 @@ ol.pubs { margin: 0; padding-left: 20px; }
 ol.pubs li { margin-bottom: 5px; break-inside: avoid; page-break-inside: avoid; }
 .tag { display: inline-block; font-size: 8.4pt; font-weight: 600; color: #26455c;
        border: 0.6pt solid #26455c; border-radius: 2px; padding: 0 4px; margin-right: 5px; }
+.tier-extra { font-size: 8.4pt; color: #777; margin-right: 5px; }
 .links { font-size: 8.6pt; color: #666; }
 
 .subhead { font-size: 9.6pt; font-weight: 600; color: #333; margin: 9px 0 4px;
@@ -199,9 +217,12 @@ def build():
         for p in lst:
             slug = p.get("permalink", "")
             tag = ""
-            for key, val in CCF.items():
+            for key, (badge, extra) in TIER.items():
                 if key in slug:
-                    tag = '<span class="tag">%s</span>' % val
+                    if badge:
+                        tag = '<span class="tag">%s</span>' % badge
+                    if extra:
+                        tag += '<span class="tier-extra">%s</span>' % extra
                     break
             links = []
             if p.get("paperurl"):
