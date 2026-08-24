@@ -136,10 +136,9 @@ GRANTS = [
 
 AWARDS = [
     ("2025", "National Scholarship for Doctoral Students"),
-    ("2025", "Outstanding Doctoral Candidate Program, NJUST &mdash; selected 2025, "
-             "passed the 2026 review with continued funding"),
-    ("2023&ndash;2025", "First-Class Academic Scholarship, NJUST (awarded every year "
-                        "of the doctoral programme)"),
+    ("", "Outstanding Doctoral Candidate Program, NJUST &mdash; selected 2025, "
+         "continued funding awarded in 2026"),
+    ("", "First-Class Academic Scholarship, NJUST &mdash; awarded multiple times"),
 ]
 
 SERVICE = ("Reviewer for <b>NeurIPS</b>, <b>ICML</b>, <b>ICLR</b>, <b>AAAI</b>, "

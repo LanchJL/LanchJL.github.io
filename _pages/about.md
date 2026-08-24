@@ -52,7 +52,7 @@ Awards
 * **National Scholarship for Doctoral Students**, 2025
 * **Outstanding Doctoral Candidate Program**, NJUST --- selected 2025, passed the 2026
   review with continued funding
-* **First-Class Academic Scholarship**, NJUST --- 2023, 2024, 2025
+* **First-Class Academic Scholarship**, NJUST --- awarded multiple times
 * **Jiangsu Provincial Graduate Research and Practice Innovation Program** --- principal
   investigator, completed
 

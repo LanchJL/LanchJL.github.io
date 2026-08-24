@@ -91,8 +91,7 @@ Awards and honors
 * **National Scholarship for Doctoral Students**, 2025
 * **Outstanding Doctoral Candidate Program** (优秀博士培养对象), NJUST ---
   selected 2025; passed the 2026 review with continued funding
-* **First-Class Academic Scholarship**, NJUST --- awarded every year since entering
-  the doctoral program (2023, 2024, 2025)
+* **First-Class Academic Scholarship**, NJUST --- awarded multiple times
 
 Academic service
 ======
