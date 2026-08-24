@@ -76,6 +76,22 @@ TARGETS = {
                  "proximate-long-tail-czsl-aaai",
                  "imaginary-connected-embedding-tpami"],
     },
+
+    "kong-um": {
+        "note": "Prof. Shu Kong, University of Macau (Visual Intelligence Lab) — "
+                "open-world vision, few-shot and zero-shot recognition, "
+                "personalised visual intelligence.",
+        # His axis is recognition outside the training label set, so the
+        # zero-shot and long-tail work leads and the domain-extension work
+        # steps back.
+        "interests": (
+            "Recognition beyond the training label set &middot; zero-shot and "
+            "compositional generalization &middot; long-tailed and imbalanced "
+            "recognition &middot; test-time adaptation of vision-language models"),
+        "lead": ["instance-attribute-bottleneck-ijcv",
+                 "proximate-long-tail-czsl-aaai",
+                 "imaginary-connected-embedding-tpami"],
+    },
 }
 
 SUMMARY = [

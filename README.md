@@ -89,6 +89,18 @@ forget to switch off; `--no-pdf-header-footer` settles it.
 
 Add `--target <name>` for a per-application variant (see `TARGETS` in the script).
 
+**The Chinese CV.** For applications to mainland institutions:
+
+```
+python scripts/build_cv_zh.py --pdf
+```
+
+It reuses the publication loading from `build_cv.py`, so the two languages cannot
+disagree about the record. It is not a translation: mainland academic CVs are read for
+venue tier, so each paper carries an explicit CCF label, and the research summary is
+dropped (that belongs in the research plan, not the CV). Education, awards and skills
+exist separately in each script — change one and change the other.
+
 The one deliberate difference from the website: the CV **names the target venue** for
 papers under review. The site withholds it, because publicising a submission to a
 double-blind venue during review is a risk that a CV emailed to one person is not.
