@@ -1,9 +1,9 @@
 # Papers under review / in preparation.
 #
-# `venue` is deliberately NOT rendered on the public site: several target venues
-# are double-blind and treat publicising a submission as promotion during review.
-# It is kept here so the field is available for the PDF CV you email directly.
-# Flip `show_venue` in _config.yml if you decide otherwise.
+# `venue` is deliberately NOT rendered on the public site or by the current CV
+# builders: several target venues are double-blind, and a forwarded CV can expose
+# a submission during review. The field is retained as private metadata for a
+# future, explicitly controlled application-materials export.
 
 - title: "Reliability-Guided Topological Anchor Projection for Test-Time Adaptation of Vision-Language Models"
   note_en: "topological anchor projection; reliability constraints"
@@ -14,8 +14,8 @@
   first_author: true
 
 - title: "AHE-CATE: A Bayesian Compass for Robust Test-Time Adaptation in Vision-Language Models"
-  note_en: "Bayesian online inference; cache-aware fusion"
-  note_zh: "贝叶斯在线推理 · 缓存感知融合"
+  note_en: "cache-aware semantic fusion; reliability calibration"
+  note_zh: "缓存感知语义融合 · 可靠性校准"
   venue: "IEEE TPAMI"
   status_en: "Under review"
   status_zh: "在投"

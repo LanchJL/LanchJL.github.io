@@ -4,7 +4,7 @@ collection: publications
 first_author: true
 category: manuscripts
 permalink: /publication/2025-03-01-imaginary-connected-embedding-tpami
-excerpt: 'Embeds attribute-object compositions in complex space, using the imaginary component to encode their coupling.'
+excerpt: 'Uses complex-space embeddings in which phase models attribute-object dependence while primitives remain independently acquired.'
 codeurl: 'https://github.com/LanchJL/IMAX'
 venue_short: 'IEEE TPAMI 2025'
 date: 2025-03-01

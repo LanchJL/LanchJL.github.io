@@ -4,7 +4,7 @@ collection: publications
 first_author: true
 category: manuscripts
 permalink: /publication/2025-07-01-imbuing-enrichment-calibration-ijcv
-excerpt: 'Uses language as a bridge to extend recognition to unseen domains through imbuing, enrichment and calibration.'
+excerpt: 'Extends a model to an unseen domain with language-conditioned styles, local variation, and calibrated semantic dimensions.'
 codeurl: 'https://github.com/LanchJL/IMEC-ZSDE'
 venue_short: 'IJCV 2025'
 date: 2025-07-01

@@ -23,7 +23,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_cv import load_publications, load_under_review, to_pdf  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(os.path.dirname(ROOT), "resume", "CV-Chenyi-Jiang-zh.html")
+PARENT = os.path.dirname(ROOT)
+OUTPUT_DIR = PARENT if os.path.basename(PARENT).lower() == "resume" else os.path.join(PARENT, "resume")
+OUT = os.path.join(OUTPUT_DIR, "CV-Chenyi-Jiang-zh.html")
 
 # 每篇论文的分级标注。原则：取「准确且最有利」的那个体系。
 #
@@ -73,8 +75,12 @@ CONTACT = [
     ("GitHub", "LanchJL", "https://github.com/LanchJL"),
 ]
 
-INTERESTS = ("零样本学习与组合零样本学习　·　视觉语言模型的测试时自适应　·　"
-             "长尾与不平衡识别　·　跨域泛化　·　多模态医学图像分析")
+INTERESTS = ("组合与广义零样本识别　·　视觉—语义表示学习　·　语言驱动的跨域适应与泛化　·　"
+             "视觉语言模型　·　测试时自适应")
+
+SUMMARY = ("我的研究关注训练分布之外的视觉—语义泛化，主体是组合与广义零样本识别。"
+           "我研究在测试组合未见时，属性、物体、组合及其视觉证据应如何建立关系；近期进一步"
+           "延伸到语言驱动的未见域扩展，以及无标签视觉语言模型的测试时自适应。")
 
 EDUCATION = [
     ("2023 – 2027（预计）", "博士，计算机科学与技术",
@@ -109,7 +115,7 @@ SKILLS = [
     ("视觉语言模型", "CLIP：微调、提示学习、测试时自适应"),
     ("数值计算", "NumPy、SciPy、scikit-learn、pandas"),
     ("图像处理", "OpenCV、Pillow、OpenSlide（千兆像素全切片图像）、einops、h5py"),
-    ("数学基础", "数学本科出身；ProLT 中类先验的闭式推导直接得益于此"),
+    ("数学基础", "数学本科出身；概率建模与视觉—语义关系分析"),
 ]
 
 CSS = """
@@ -180,6 +186,8 @@ TPL = """<!doctype html>
 </header>
 
 <section><h2>研究方向</h2><p>%(interests)s</p></section>
+
+<section><h2>研究概况</h2><p>%(summary)s</p></section>
 
 <section><h2>教育背景</h2>%(education)s</section>
 
@@ -266,7 +274,7 @@ def build():
     today = datetime.date.today()
     html = TPL % dict(
         name=NAME, name_en=NAME_EN, css=CSS, position=POSITION, contact=contact,
-        interests=INTERESTS, education=edu,
+        interests=INTERESTS, summary=SUMMARY, education=edu,
         n_total=len(pubs), n_first=len(first), n_ur=len(ur),
         first=items(first), co=items(co), ur=ur_items,
         projects=proj, awards=awards, service=SERVICE, skills=skills,

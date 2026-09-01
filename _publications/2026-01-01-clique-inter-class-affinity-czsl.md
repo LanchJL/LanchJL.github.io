@@ -4,7 +4,7 @@ collection: publications
 first_author: true
 category: manuscripts
 permalink: /publication/2026-01-01-clique-inter-class-affinity-czsl
-excerpt: 'Models inter-class affinity as cliques to capture structured relations among state-object compositions.'
+excerpt: 'Builds multi-level semantic and visual affinity cliques, replacing hard one-to-one targets with hierarchical one-to-many alignment.'
 codeurl: 'https://github.com/LanchJL/CIA-CZSL'
 venue_short: 'Pattern Recognition 2026'
 date: 2026-01-01

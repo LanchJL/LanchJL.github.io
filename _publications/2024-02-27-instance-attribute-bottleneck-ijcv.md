@@ -4,7 +4,7 @@ collection: publications
 first_author: true
 category: manuscripts
 permalink: /publication/2024-02-27-instance-attribute-bottleneck-ijcv
-excerpt: 'Replaces rigid class-level attribute vectors with a near-instance-level attribute bottleneck that adapts to within-class variation.'
+excerpt: 'Replaces class-level attributes with near-instance-level basis vectors and region-aware visual-attribute relations.'
 codeurl: 'https://github.com/LanchJL/IAB-GZSL'
 venue_short: 'IJCV 2024'
 date: 2024-02-27

@@ -1,152 +1,188 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
+    "name": "Chenyi Jiang / 江宸逸",
+    "email": "jiangchenyi@njust.edu.cn",
     "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "website": "https://lanchjl.github.io",
+    "summary": "Ph.D. candidate at Nanjing University of Science and Technology studying visual-semantic generalization beyond the training distribution, with a focus on compositional and generalized zero-shot recognition.",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Earth",
-      "countryCode": "US",
-      "region": ""
+      "city": "Nanjing",
+      "countryCode": "CN",
+      "region": "Jiangsu"
     },
     "profiles": [
       {
         "network": "Google Scholar",
-        "username": "",
-        "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-      },
-      {
-        "network": "ORCID",
-        "username": "",
-        "url": "https://orcid.org/yourorcidurl"
+        "username": "R9ruXHMAAAAJ",
+        "url": "https://scholar.google.com/citations?user=R9ruXHMAAAAJ"
       },
       {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "username": "LanchJL",
+        "url": "https://github.com/LanchJL"
       }
     ]
   },
   "work": [],
   "education": [
     {
-      "institution": "GitHub University",
-      "area": "Ph.D in Version Control Theory",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2018",
+      "institution": "Nanjing University of Science and Technology",
+      "area": "Computer Science and Technology",
+      "studyType": "Ph.D.",
+      "startDate": "2023",
+      "endDate": "2027",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "M.S. in Jekyll",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2014",
+      "institution": "Nanjing University of Science and Technology",
+      "area": "Pattern Recognition and Intelligent Systems",
+      "studyType": "M.Sc.",
+      "startDate": "2021",
+      "endDate": "2023",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "B.S. in GitHub",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2012",
+      "institution": "Fuzhou University",
+      "area": "Mathematics and Applied Mathematics",
+      "studyType": "B.Sc.",
+      "startDate": "2017",
+      "endDate": "2021",
       "gpa": null,
       "courses": []
     }
   ],
-  "skills": [],
+  "skills": [
+    {
+      "name": "Deep learning",
+      "keywords": ["PyTorch", "torchvision", "timm", "Linux GPU training and evaluation"]
+    },
+    {
+      "name": "Vision-language models",
+      "keywords": ["CLIP", "prompt-based adaptation", "test-time adaptation"]
+    },
+    {
+      "name": "Scientific computing",
+      "keywords": ["NumPy", "SciPy", "scikit-learn", "pandas"]
+    },
+    {
+      "name": "Image processing",
+      "keywords": ["OpenCV", "Pillow", "OpenSlide", "einops", "h5py"]
+    }
+  ],
   "languages": [],
-  "interests": [],
+  "interests": [
+    "Compositional and generalized zero-shot recognition",
+    "Visual-semantic representation learning",
+    "Language-guided domain adaptation and generalization",
+    "Vision-language models",
+    "Test-time adaptation"
+  ],
   "references": [],
   "publications": [
     {
-      "name": "Paper Title Number 1",
-      "publisher": "Journal 1",
-      "releaseDate": "2009-10-01",
-      "website": "https://academicpages.github.io/files/paper1.pdf",
-      "summary": "This paper is about the number 1. The number 2 is left for future work."
+      "name": "Learning Clique-Based Inter-Class Affinity for Compositional Zero-Shot Learning",
+      "publisher": "Pattern Recognition, 2026",
+      "releaseDate": "2026-01-01",
+      "website": "https://github.com/LanchJL/CIA-CZSL",
+      "summary": "Builds multi-level semantic and visual affinity cliques for hierarchical one-to-many alignment."
     },
     {
-      "name": "Paper Title Number 2",
-      "publisher": "Journal 1",
-      "releaseDate": "2010-10-01",
-      "website": "https://academicpages.github.io/files/paper2.pdf",
-      "summary": "This paper is about the number 2. The number 3 is left for future work."
+      "name": "Imbuing, Enrichment and Calibration: Leveraging Language for Unseen Domain Extension",
+      "publisher": "International Journal of Computer Vision, 2025",
+      "releaseDate": "2025-07-01",
+      "website": "https://github.com/LanchJL/IMEC-ZSDE",
+      "summary": "Extends a model to an unseen domain with language-conditioned styles, local variation, and calibrated semantic dimensions."
     },
     {
-      "name": "Paper Title Number 3",
-      "publisher": "Journal 1",
-      "releaseDate": "2015-10-01",
-      "website": "https://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about the number 3. The number 4 is left for future work."
+      "name": "Imaginary-Connected Embedding in Complex Space for Unseen Attribute-Object Discrimination",
+      "publisher": "IEEE Transactions on Pattern Analysis and Machine Intelligence, 2025",
+      "releaseDate": "2025-03-01",
+      "website": "https://github.com/LanchJL/IMAX",
+      "summary": "Uses complex-space embeddings in which phase models attribute-object dependence while primitives remain independently acquired."
     },
     {
-      "name": "Paper Title Number 4",
-      "publisher": "GitHub Journal of Bugs",
-      "releaseDate": "2024-02-17",
-      "website": "https://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about fixing template issue #693."
+      "name": "Mutual Balancing in State-Object Components for Compositional Zero-Shot Learning",
+      "publisher": "Pattern Recognition, 2024",
+      "releaseDate": "2024-03-26",
+      "website": "https://doi.org/10.1016/j.patcog.2024.110451",
+      "summary": "Treats compositional zero-shot learning as unbalanced multi-label classification and rebalances decision boundaries."
+    },
+    {
+      "name": "Estimation of Near-Instance-Level Attribute Bottleneck for Zero-Shot Learning",
+      "publisher": "International Journal of Computer Vision, 2024",
+      "releaseDate": "2024-02-27",
+      "website": "https://doi.org/10.1007/s11263-024-02021-x",
+      "summary": "Replaces class-level attributes with near-instance-level basis vectors and region-aware visual-attribute relations."
+    },
+    {
+      "name": "Revealing the Proximate Long-Tail Distribution in Compositional Zero-Shot Learning",
+      "publisher": "AAAI Conference on Artificial Intelligence, 2024",
+      "releaseDate": "2024-02-20",
+      "website": "https://ojs.aaai.org/index.php/AAAI/article/view/28026",
+      "summary": "Derives a class-prior correction for composition-induced visual bias without adding inference parameters."
+    },
+    {
+      "name": "Evolutionary Generalized Zero-Shot Learning",
+      "publisher": "International Joint Conference on Artificial Intelligence, 2024",
+      "releaseDate": "2024-08-03",
+      "website": "",
+      "summary": "Co-authored work framing generalized zero-shot learning as an evolutionary process over the seen/unseen boundary."
+    },
+    {
+      "name": "Fusing Spatial and Frequency Features for Compositional Zero-Shot Image Classification",
+      "publisher": "Expert Systems with Applications, 2024",
+      "releaseDate": "2024-12-01",
+      "website": "",
+      "summary": "Co-authored work combining spatial-domain and frequency-domain representations."
+    },
+    {
+      "name": "Do They Share the Same Tail? Learning Individual Compositional Attribute Prototype for Generalized Zero-Shot Learning",
+      "publisher": "Asian Conference on Computer Vision, 2024",
+      "releaseDate": "2024-12-08",
+      "website": "",
+      "summary": "Co-authored work learning individualized compositional attribute prototypes."
+    },
+    {
+      "name": "Learning to Calibrate Prototypes for Few-Shot Image Classification",
+      "publisher": "Cognitive Computation, 2025",
+      "releaseDate": "2025-01-01",
+      "website": "",
+      "summary": "Co-authored work calibrating class prototypes to reduce estimation bias under few-shot supervision."
+    },
+    {
+      "name": "Contextual Interaction via Primitive-Based Adversarial Training for Compositional Zero-Shot Learning",
+      "publisher": "ACM TOMM, 2025",
+      "releaseDate": "2025-01-15",
+      "website": "",
+      "summary": "Co-authored work modeling contextual interaction between states and objects with primitive-level adversarial training."
+    },
+    {
+      "name": "Multi-Domain Feature-Enhanced Attribute Updater for Generalized Zero-Shot Learning",
+      "publisher": "Neural Computing and Applications, 2025",
+      "releaseDate": "2025-05-01",
+      "website": "",
+      "summary": "Co-authored work enhancing attribute representations across multiple feature domains."
+    },
+    {
+      "name": "Text-Vision Fusion and Semantic Adaptive Labeling for Compositional Zero-Shot Learning",
+      "publisher": "Expert Systems with Applications, 2026",
+      "releaseDate": "2026-04-01",
+      "website": "",
+      "summary": "Co-authored work fusing textual and visual cues with adaptive semantic labeling."
+    },
+    {
+      "name": "Language-Guided Attribute Alignment and Semantic Consistency for Zero-Shot Domain Adaptation",
+      "publisher": "IEEE International Conference on Robotics and Automation, 2026",
+      "releaseDate": "2026-05-01",
+      "website": "",
+      "summary": "Co-authored work on language-guided attribute alignment and semantic consistency for zero-shot domain adaptation."
     }
   ],
-  "presentations": [
-    {
-      "name": "Talk 1 on Relevant Topic in Your Field",
-      "event": "UC San Francisco, Department of Testing",
-      "date": "2012-03-01",
-      "location": "San Francisco, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Tutorial 1 on Relevant Topic in Your Field",
-      "event": "UC-Berkeley Institute for Testing Science",
-      "date": "2013-03-01",
-      "location": "Berkeley, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Talk 2 on Relevant Topic in Your Field",
-      "event": "London School of Testing",
-      "date": "2014-02-01",
-      "location": "London, UK",
-      "description": ""
-    },
-    {
-      "name": "Conference Proceeding talk 3 on Relevant Topic in Your Field",
-      "event": "Testing Institute of America 2014 Annual Conference",
-      "date": "2014-03-01",
-      "location": "Los Angeles, CA, USA",
-      "description": ""
-    }
-  ],
-  "teaching": [
-    {
-      "course": "Teaching experience 1",
-      "institution": "University 1, Department",
-      "date": "2014-01-01",
-      "role": "Undergraduate course",
-      "description": ""
-    },
-    {
-      "course": "Teaching experience 2",
-      "institution": "University 1, Department",
-      "date": "2015-01-01",
-      "role": "Workshop",
-      "description": ""
-    }
-  ],
-  "portfolio": [
-    {
-      "name": "Portfolio item number 1",
-      "category": "portfolio",
-      "date": "",
-      "url": "",
-      "description": "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
-    }
-  ]
+  "presentations": [],
+  "teaching": [],
+  "portfolio": []
 }

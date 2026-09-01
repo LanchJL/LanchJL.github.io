@@ -1,10 +1,15 @@
 # lanchjl.github.io
 
-Academic homepage of **Chenyi Jiang (江宸逸)**, Ph.D. candidate at Nanjing University
-of Science and Technology.
+Academic homepage and CV source of **Chenyi Jiang (江宸逸)**, Ph.D. candidate at
+Nanjing University of Science and Technology.
 
 Built on [AcademicPages](https://github.com/academicpages/academicpages.github.io)
 (a Jekyll fork of Minimal Mistakes), with a plugin-free bilingual setup.
+
+This source was recovered from the public LanchJL/LanchJL.github.io repository and
+is the source of truth for the homepage text, publication metadata, and standalone CV
+builders. The surrounding resume/ directory contains exported PDFs and application
+drafts.
 
 ## Layout
 
@@ -85,7 +90,9 @@ Chrome to `../resume/CV-江宸逸-南京理工大学.pdf`.
 
 The `--pdf` step exists because the browser print dialog stamps the file path and the
 date into the page margins by default. That looks careless on a CV and is easy to
-forget to switch off; `--no-pdf-header-footer` settles it.
+forget to switch off; `--no-pdf-header-footer` settles it. When this repository is
+kept under the materials directory as resume/homepage, the generated files are
+written to the parent resume/ directory automatically.
 
 Add `--target <name>` for a per-application variant (see `TARGETS` in the script).
 

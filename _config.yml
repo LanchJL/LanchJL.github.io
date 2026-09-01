@@ -10,9 +10,10 @@
 locale                   : "en-US"
 site_theme               : "dirt" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Chenyi Jiang"
+title_zh                 : "江宸逸"
 title_separator          : "-"
 name                     : &name "Chenyi Jiang"
-description              : &description "Chenyi Jiang - PhD candidate at Nanjing University of Science and Technology, working on zero-shot learning, compositional generalization, and test-time adaptation of vision-language models."
+description              : &description "Chenyi Jiang - PhD candidate at Nanjing University of Science and Technology studying visual-semantic generalization beyond the training distribution, with a focus on compositional and generalized zero-shot recognition."
 url                      : https://lanchjl.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "LanchJL/LanchJL.github.io"
@@ -25,7 +26,7 @@ author:
   avatar           : "profile.png"
   name             : "Chenyi Jiang / 江宸逸"
   pronouns         : # example: "she/her"
-  bio              : "PhD candidate. Zero-shot & compositional learning, and test-time adaptation of vision-language models."
+  bio              : "PhD candidate studying visual-semantic generalization beyond the training distribution: compositional and generalized zero-shot recognition, domain adaptation, and vision-language models."
   location         : "Nanjing, China"
   employer         : "Nanjing University of Science and Technology"
   uri              : # URL

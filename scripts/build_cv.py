@@ -14,11 +14,16 @@ import os
 import re
 import glob
 import datetime
+import tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB_DIR = os.path.join(ROOT, "_publications")
 UNDER_REVIEW = os.path.join(ROOT, "_data", "under_review.yml")
-OUT = os.path.join(os.path.dirname(ROOT), "resume", "CV-Chenyi-Jiang.html")
+PARENT = os.path.dirname(ROOT)
+# The recovered source lives in a resume/homepage folder here, while the
+# original Windows layout was code/homepage beside code/resume.
+OUTPUT_DIR = PARENT if os.path.basename(PARENT).lower() == "resume" else os.path.join(PARENT, "resume")
+OUT = os.path.join(OUTPUT_DIR, "CV-Chenyi-Jiang.html")
 
 # --------------------------------------------------------------------------
 # Content that does not live in the site data files.
@@ -38,11 +43,10 @@ CONTACT = [
 POSITION = ("Ph.D. Candidate, School of Computer Science and Engineering<br>"
             "Nanjing University of Science and Technology, Nanjing, China")
 
-INTERESTS = ("Zero-shot and compositional learning &middot; "
-             "test-time adaptation of vision-language models &middot; "
-             "long-tailed and imbalanced recognition &middot; "
-             "cross-domain generalization &middot; "
-             "multimodal medical image analysis")
+INTERESTS = ("Compositional and generalized zero-shot recognition &middot; "
+             "visual-semantic representation learning &middot; "
+             "language-guided domain adaptation and generalization &middot; "
+             "vision-language models &middot; test-time adaptation")
 
 # --------------------------------------------------------------------------
 # Per-application variants.
@@ -60,16 +64,12 @@ INTERESTS = ("Zero-shot and compositional learning &middot; "
 TARGETS = {
     "zheng-um": {
         "note": "Prof. Zhedong Zheng, University of Macau — uncertainty "
-                "estimation, data-centric AI, unsupervised domain adaptation.",
-        # Zero-shot is played down rather than dropped: it comes last and is
-        # described rather than named, so the line leans toward the shared
-        # ground without contradicting the publication list below it.
+                "estimation, data-centric AI, and domain adaptation.",
         "interests": (
-            "Uncertainty estimation and test-time adaptation of vision-language "
-            "models &middot; unsupervised domain adaptation and cross-domain "
-            "generalization &middot; data-centric approaches to long-tailed and "
-            "imbalanced recognition &middot; generalization to unseen categories "
-            "and compositions"),
+            "Visual-semantic generalization beyond the training distribution &middot; "
+            "language-guided domain adaptation &middot; label-free adaptation of "
+            "vision-language models &middot; compositional and generalized zero-shot "
+            "recognition"),
         # Lead with the domain-adaptation and data-viewpoint work rather than
         # strict reverse chronology.
         "lead": ["imbuing-enrichment-calibration-ijcv",
@@ -79,15 +79,15 @@ TARGETS = {
 
     "kong-um": {
         "note": "Prof. Shu Kong, University of Macau (Visual Intelligence Lab) — "
-                "open-world vision, few-shot and zero-shot recognition, "
+                "unseen-category recognition, few-shot and zero-shot learning, "
                 "personalised visual intelligence.",
-        # His axis is recognition outside the training label set, so the
-        # zero-shot and long-tail work leads and the domain-extension work
-        # steps back.
+        # Lead with the established compositional recognition record, then name
+        # the newer vision-language direction without making it sound like the
+        # whole publication record is VLM work.
         "interests": (
-            "Recognition beyond the training label set &middot; zero-shot and "
-            "compositional generalization &middot; long-tailed and imbalanced "
-            "recognition &middot; test-time adaptation of vision-language models"),
+            "Compositional and generalized zero-shot recognition &middot; "
+            "visual-semantic representation learning &middot; recognition of "
+            "unseen categories and compositions &middot; vision-language models"),
         "lead": ["instance-attribute-bottleneck-ijcv",
                  "proximate-long-tail-czsl-aaai",
                  "imaginary-connected-embedding-tpami"],
@@ -95,16 +95,11 @@ TARGETS = {
 }
 
 SUMMARY = [
-    """I work on generalization under distribution shift &mdash; recognizing categories,
-    compositions and domains absent from training, and adapting a pre-trained model at
-    test time once the distribution has moved. My results usually come from the
-    supervision side rather than the model side: a class-level attribute vector too
-    coarse to describe its own images, an implicit prior that is not uniform, a loss that
-    treats a near miss and an absurd one alike. <i>ProLT</i> (AAAI 2024) is
-    representative &mdash; a bias the field had treated as a defect of representation
-    turns out to approximate a long-tailed distribution, correctable in closed form and
-    free at inference. Current work is on test-time adaptation of vision-language models,
-    where there is no supervision left to correct at all.""",
+    """I study visual-semantic generalization beyond the training distribution, with a
+    primary focus on compositional and generalized zero-shot recognition. My work examines
+    how attributes, objects, compositions, and visual evidence should be related when test
+    combinations are unseen. Recent work extends the same question to language-guided
+    unseen-domain extension and label-free test-time adaptation of vision-language models.""",
 ]
 
 EDUCATION = [
@@ -158,9 +153,8 @@ SKILLS = [
     ("Numerical", "NumPy, SciPy, scikit-learn, pandas"),
     ("Imaging",
      "OpenCV, Pillow, OpenSlide (gigapixel whole-slide images), einops, h5py"),
-    ("Mathematics",
-     "B.Sc. in mathematics; the closed-form class-prior derivation in ProLT "
-     "follows directly from it"),
+    ("Mathematics", "B.Sc. in mathematics; probability modeling and visual-semantic "
+     "relation analysis"),
 ]
 
 
@@ -463,6 +457,10 @@ def render(target=None):
 CHROME = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
     r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+    "/usr/bin/google-chrome",
+    "/usr/bin/google-chrome-stable",
+    "/usr/bin/chromium",
+    "/usr/bin/chromium-browser",
 ]
 
 
@@ -478,16 +476,33 @@ def to_pdf(html_path, pdf_path):
     exe = next((p for p in CHROME if os.path.exists(p)), None)
     if not exe:
         print("  no Chrome or Edge found; open the HTML and print to PDF by hand")
-        return
+        return False
     url = "file:///" + html_path.replace("\\", "/")
-    subprocess.run([exe, "--headless=new", "--disable-gpu",
-                    "--no-pdf-header-footer",
-                    "--print-to-pdf=" + pdf_path, url],
-                   check=False, capture_output=True, timeout=120)
-    if os.path.exists(pdf_path):
-        print("  pdf    : %s (%.0f KB)" % (pdf_path, os.path.getsize(pdf_path) / 1024))
-    else:
-        print("  pdf    : failed")
+    output_dir = os.path.dirname(os.path.abspath(pdf_path))
+    os.makedirs(output_dir, exist_ok=True)
+    # Render to a sibling temporary file so a failed browser run cannot make a
+    # stale PDF look newly generated or leave a half-written final file.
+    fd, temp_pdf = tempfile.mkstemp(prefix=".cv-", suffix=".pdf", dir=output_dir)
+    os.close(fd)
+    try:
+        result = subprocess.run(
+            [exe, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
+             "--print-to-pdf=" + temp_pdf, url],
+            check=False, capture_output=True, text=True, timeout=120)
+        if result.returncode == 0 and os.path.isfile(temp_pdf) and os.path.getsize(temp_pdf):
+            os.replace(temp_pdf, pdf_path)
+            print("  pdf    : %s (%.0f KB)" % (pdf_path, os.path.getsize(pdf_path) / 1024))
+            return True
+        detail = " ".join((result.stderr or "").splitlines()[-2:]).strip()
+        print("  pdf    : failed (Chrome exit %d)%s" %
+              (result.returncode, ": " + detail if detail else ""))
+        return False
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        print("  pdf    : failed (%s)" % exc)
+        return False
+    finally:
+        if os.path.exists(temp_pdf):
+            os.remove(temp_pdf)
 
 
 if __name__ == "__main__":

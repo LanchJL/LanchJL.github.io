@@ -7,22 +7,35 @@ nav: main
 lang_alt: /zh/research/
 ---
 
-Questioning what the model is told
+Visual-semantic generalization beyond the training distribution
 ======
 
-A recognition model trained on a fixed label set fails the moment the world offers
-something outside it. The usual response is to give the model more --- more parameters,
-more modules, more data. My work asks a cheaper question first: **is the supervision
-itself correct?**
+My research asks how visual models can generalize when the semantic combinations,
+domains, or visual evidence at test time differ from those seen in training. The main
+body of my work is compositional and generalized zero-shot recognition: transferring
+knowledge from seen states and objects to unseen compositions, while learning
+visual-semantic correspondences that reflect actual visual variation.
 
-Zero-shot learning turns out to be full of inherited assumptions that nobody re-examines.
-One attribute vector stands in for a whole class. Every composition is implicitly assumed
-equally likely. Every wrong answer is punished the same amount. Attribute, object and
-composition are measured on three scales that never meet. Each of these limits
-generalization more than capacity does --- and each can be replaced, usually without
-costing anything at inference time.
+Across these settings, I study where a semantic decomposition fails to match visual
+evidence: one attribute vector may be too coarse for a class, component deviations may
+be imbalanced, composition priors may be skewed, or a hard one-to-one target may ignore
+affinity between classes. The resulting methods use instance-aware attributes,
+data-derived priors, component balancing, composition-aware geometry, and hierarchical
+affinity constraints.
 
-Every project below has released code.
+The methodological projects below have public code.
+
+Research arc
+------
+
+1. **Represent visual variation within semantic categories.** IAB introduces
+   near-instance-level attributes and local grounding for zero-shot learning.
+2. **Model structure in unseen compositions.** ProLT, MUST, IMAX, and CIA address
+   composition-induced priors, component imbalance, composition-aware geometry, and
+   hierarchical inter-class affinity.
+3. **Generalize beyond the seen visual domain.** IMEC uses language to extend a model to
+   an unseen domain; current work studies label-free adaptation of a deployed
+   vision-language model.
 
 I. Attribute-based zero-shot learning
 ------
@@ -129,15 +142,15 @@ transfer. Global semantics conditionally generate style vectors, which are *imbu
 visual features; local semantics then supply minor perturbations that *enrich* those
 vectors by dispersing them, since a real domain has internal variation a single
 synthesized point cannot express; finally a dimensional activation strategy *calibrates*
-which semantic content is kept. The result joins abstract semantic knowledge to concrete
-image detail, narrowing the gap between synthetic and real target samples.
+which semantic content is kept. The result narrows the gap between synthetic and real
+target samples without treating language as a pixel-level substitute.
 
 It is evaluated across **semantic segmentation, object detection and image
 classification**, and improves the source domain as well as the target.
 [Code](https://github.com/LanchJL/IMEC-ZSDE)
 
-A companion paper (**ICRA 2026**) addresses the same task through language-guided
-attribute alignment and semantic consistency.
+A co-authored paper at **ICRA 2026** addresses zero-shot domain adaptation through
+language-guided attribute alignment and semantic consistency.
 
 IV. Test-time adaptation of vision-language models
 ------
@@ -147,17 +160,17 @@ distribution it will actually meet. My current work asks how such a model should
 **reorganize its own evidence at test time** --- unlabelled, online, and without a second
 training pass. A related line continues the compositional work of section II.
 
-Six papers on these questions are currently under review. They are listed under
-[Publications](/publications/); I am happy to discuss them by email, but they are not
-described further here while review is ongoing.
+Six first-author papers on these questions are currently under review. They are listed
+under [Publications](/publications/); I do not describe their methods further here while
+review is ongoing.
 
 V. Applied work — multimodal kidney transplant pathology
 ------
 
-I work on a **multimodal diagnostic and prognostic model for kidney transplantation**,
-in collaboration with the Department of Kidney Transplantation, Zhongshan Hospital,
-Fudan University, where I am responsible for the full model implementation, training and
-evaluation.
+I contribute to a **multimodal diagnostic and prognostic model for kidney
+transplantation**, in collaboration with the Department of Kidney Transplantation,
+Zhongshan Hospital, Fudan University. I am responsible for the full model
+implementation, training, and evaluation.
 
 The model has to read across modalities that share almost nothing: gigapixel whole-slide
 images in several stains, longitudinal laboratory results, and clinical records. Getting
@@ -165,6 +178,7 @@ them to inform a single prediction is a harder version of a problem I already wo
 IMEC exists because language and pixels are not the same kind of thing, and a biopsy
 slide and a creatinine trajectory are further apart still.
 
-It is also a useful reality check. Pathology brings severe class imbalance, long-tailed
-lesion categories, and annotations that disagree across stains and centers --- the same
-structure my methodological work addresses, without the convenience of a clean benchmark.
+The data combine several sources of variation: multi-stain gigapixel whole-slide images,
+longitudinal laboratory results, and clinical records. This work gives my methodological
+questions a setting with class imbalance, long-tailed outcomes, and heterogeneous
+annotations rather than a clean benchmark alone.

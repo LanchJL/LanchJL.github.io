@@ -4,7 +4,7 @@ collection: publications
 first_author: true
 category: conferences
 permalink: /publication/2024-02-20-proximate-long-tail-czsl-aaai
-excerpt: 'Shows that compositional visual bias approximates a long-tailed distribution, and derives a class-prior correction from it.'
+excerpt: 'Shows that composition-induced visual bias follows a proximate long-tailed distribution and derives a class-prior correction without adding inference parameters.'
 codeurl: 'https://github.com/LanchJL/ProLT'
 venue_short: 'AAAI 2024'
 date: 2024-02-20

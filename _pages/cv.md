@@ -28,6 +28,15 @@ Nanjing University of Science and Technology, Nanjing, China
 
 </div>
 
+Research profile
+======
+
+I study **visual-semantic generalization beyond the training distribution**, with a
+primary focus on compositional and generalized zero-shot recognition. My work examines
+how attributes, objects, compositions, and visual evidence should be related when test
+combinations are unseen. Recent work extends the same question to language-guided
+unseen-domain extension and label-free test-time adaptation of vision-language models.
+
 Education
 ======
 
@@ -46,9 +55,9 @@ Education
 Research interests
 ======
 
-Zero-shot and compositional zero-shot learning &middot; test-time adaptation of
-vision-language models &middot; long-tailed and imbalanced recognition &middot;
-cross-domain generalization
+Compositional and generalized zero-shot recognition &middot; visual-semantic representation
+learning &middot; language-guided domain adaptation and generalization &middot; vision-language
+models &middot; test-time adaptation
 
 Publications
 ======
@@ -102,13 +111,11 @@ Reviewer for **NeurIPS**, **ICML**, **ICLR**, **AAAI**, *Pattern Recognition*, a
 Technical skills
 ======
 
-* **Deep learning** --- PyTorch, torchvision, timm; multi-GPU training and experiment
-  management on Linux GPU servers
-* **Vision-language models** --- CLIP / OpenCLIP; prompt-based adaptation, cache-based
-  test-time adaptation, Bayesian online inference
+* **Deep learning** --- PyTorch, torchvision, timm; training and evaluation pipelines on
+  Linux GPU servers
+* **Vision-language models** --- CLIP; prompt-based adaptation and test-time adaptation
 * **Scientific computing** --- NumPy, SciPy, scikit-learn, pandas
 * **Image processing** --- OpenCV, Pillow, OpenSlide (gigapixel whole-slide pathology
   images), einops, h5py
-* **Mathematics** --- B.Sc. in mathematics; the class-prior derivation in *ProLT* and
-  the Bayesian formulation in my test-time adaptation work are direct products of that
-  background
+* **Mathematics** --- B.Sc. in mathematics; probability modeling and visual-semantic
+  relation analysis
