@@ -29,6 +29,7 @@ author:
   name             : "Chenyi Jiang / 江宸逸"
   pronouns         : # example: "she/her"
   bio              : "PhD candidate studying visual-semantic generalization beyond the training distribution: compositional and generalized zero-shot recognition, domain adaptation, and vision-language models."
+  bio_zh           : "研究训练分布之外的视觉—语义泛化，关注组合与广义零样本识别、跨域适应与视觉语言模型。"
   location         : "Nanjing, China"
   employer         : "Nanjing University of Science and Technology"
   uri              : # URL
