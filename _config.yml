@@ -25,7 +25,7 @@ author:
   # Biographic information
   # Keep profile.png in the repository for a possible future return, but do not
   # display a personal photo on the public site for now.
-  avatar           : ""
+  avatar           :
   name             : "Chenyi Jiang / 江宸逸"
   pronouns         : # example: "she/her"
   bio              : "PhD candidate studying visual-semantic generalization beyond the training distribution: compositional and generalized zero-shot recognition, domain adaptation, and vision-language models."
