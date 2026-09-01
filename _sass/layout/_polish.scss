@@ -208,13 +208,22 @@ html[data-theme="dark"] .publications-page {
   --academic-rule   : rgba(231, 244, 241, 0.2);
 }
 
-.research-page .page__content,
-.publications-page .page__content {
+.research-page .archive,
+.publications-page .archive {
   color: var(--academic-ink);
 }
 
-.research-page .page__content > h1:first-child {
-  margin-top: 0.75em;
+.research-page .archive > h1.page__title {
+  margin-bottom: 1.1em;
+  color: var(--academic-muted);
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.research-page .archive > h1.page__title + h1 {
+  margin-top: 0;
   padding-bottom: 0.5em;
   border-bottom: 4px solid var(--academic-accent);
   color: var(--academic-ink);
@@ -222,14 +231,14 @@ html[data-theme="dark"] .publications-page {
   line-height: 1.2;
 }
 
-.research-page .page__content > h1:first-child + p {
+.research-page .archive > h1.page__title + h1 + p {
   max-width: 48em;
   color: var(--academic-muted);
   font-size: 1.1em;
   line-height: 1.75;
 }
 
-.research-page .page__content > h1:first-child ~ p {
+.research-page .archive > h1.page__title + h1 ~ p {
   max-width: 58em;
 }
 
@@ -288,7 +297,7 @@ html[data-theme="dark"] .publications-page {
   height: 0;
 }
 
-.research-page .page__content > h2 {
+.research-page .archive > h2 {
   margin-top: 3.4em;
   padding: 0.75em 0 0.55em;
   border-top: 2px solid var(--academic-accent);
@@ -298,7 +307,7 @@ html[data-theme="dark"] .publications-page {
   line-height: 1.35;
 }
 
-.research-page .page__content > h3 {
+.research-page .archive > h3 {
   margin-top: 2.35em;
   padding: 0.7em 0 0.7em 0.9em;
   border-left: 3px solid var(--academic-warm);
@@ -308,16 +317,16 @@ html[data-theme="dark"] .publications-page {
   line-height: 1.45;
 }
 
-.research-page .page__content > h3 + p {
+.research-page .archive > h3 + p {
   margin-top: 0.8em;
 }
 
-.research-page .page__content > p {
+.research-page .archive > p {
   max-width: 58em;
   color: var(--academic-muted);
 }
 
-.research-page .page__content > h3 ~ p a[href*="github.com"] {
+.research-page .archive > h3 ~ p a[href*="github.com"] {
   color: var(--academic-accent);
   font-weight: 700;
 }
@@ -1119,7 +1128,7 @@ body.home-page::before {
 }
 
 @media screen and (max-width: 800px) {
-  .research-page .page__content > h1:first-child {
+  .research-page .archive > h1.page__title + h1 {
     font-size: 1.65em;
   }
 
