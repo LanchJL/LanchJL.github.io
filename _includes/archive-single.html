@@ -33,6 +33,11 @@
         <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h2>
+
+    {% if page.url contains '/publications/' and post.citation %}
+      {% assign publication_authors = post.citation | split: ' (' | first %}
+      <p class="publication-entry__authors">{{ publication_authors }}</p>
+    {% endif %}
     
     {% if post.read_time %}
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
@@ -41,7 +46,13 @@
         {% if post.collection == 'teaching' %}
           <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif post.collection == 'publications' %}
-          <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
+          <p class="publication-entry__venue">
+            {% if page.nav == 'zh' %}
+              发表于 <i>{{ post.venue }}</i>，{{ post.date | default: "1900-01-01" | date: "%Y" }} 年
+            {% else %}
+              Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}
+            {% endif %}
+          </p>
         {% elsif post.date %}
          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}
@@ -65,11 +76,22 @@
 
     {% if post.paperurl or post.codeurl or post.slidesurl or post.bibtexurl %}
       <p class="archive__item-links">
+        {% if page.nav == 'zh' %}
+          {% assign paper_label = '论文' %}
+          {% assign code_label = '代码' %}
+          {% assign slides_label = '幻灯片' %}
+          {% assign bibtex_label = 'BibTeX' %}
+        {% else %}
+          {% assign paper_label = 'Paper' %}
+          {% assign code_label = 'Code' %}
+          {% assign slides_label = 'Slides' %}
+          {% assign bibtex_label = 'BibTeX' %}
+        {% endif %}
         {% assign sep = '' %}
-        {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% assign sep = ' &middot; ' %}{% endif %}
-        {% if post.codeurl %}{{ sep }}<a href="{{ post.codeurl }}">Code</a>{% assign sep = ' &middot; ' %}{% endif %}
-        {% if post.slidesurl %}{{ sep }}<a href="{{ post.slidesurl }}">Slides</a>{% assign sep = ' &middot; ' %}{% endif %}
-        {% if post.bibtexurl %}{{ sep }}<a href="{{ post.bibtexurl }}">BibTeX</a>{% endif %}
+        {% if post.paperurl %}<a href="{{ post.paperurl }}">{{ paper_label }}</a>{% assign sep = ' &middot; ' %}{% endif %}
+        {% if post.codeurl %}{{ sep }}<a href="{{ post.codeurl }}">{{ code_label }}</a>{% assign sep = ' &middot; ' %}{% endif %}
+        {% if post.slidesurl %}{{ sep }}<a href="{{ post.slidesurl }}">{{ slides_label }}</a>{% assign sep = ' &middot; ' %}{% endif %}
+        {% if post.bibtexurl %}{{ sep }}<a href="{{ post.bibtexurl }}">{{ bibtex_label }}</a>{% endif %}
       </p>
     {% endif %}
 

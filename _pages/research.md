@@ -25,17 +25,15 @@ affinity constraints.
 
 The methodological projects below have public code.
 
-Research arc
-------
+<nav class="research-map" aria-label="Research sections">
+  <a href="#research-attributes"><span>01</span><strong>Attribute grounding</strong><small>IAB</small></a>
+  <a href="#research-compositions"><span>02</span><strong>Compositional structure</strong><small>ProLT · MUST · IMAX · CIA</small></a>
+  <a href="#research-domains"><span>03</span><strong>Unseen domains</strong><small>IMEC</small></a>
+  <a href="#research-adaptation"><span>04</span><strong>Test-time adaptation</strong><small>Vision-language models</small></a>
+  <a href="#research-applied"><span>05</span><strong>Applied multimodality</strong><small>Kidney pathology</small></a>
+</nav>
 
-1. **Represent visual variation within semantic categories.** IAB introduces
-   near-instance-level attributes and local grounding for zero-shot learning.
-2. **Model structure in unseen compositions.** ProLT, MUST, IMAX, and CIA address
-   composition-induced priors, component imbalance, composition-aware geometry, and
-   hierarchical inter-class affinity.
-3. **Generalize beyond the seen visual domain.** IMEC uses language to extend a model to
-   an unseen domain; current work studies label-free adaptation of a deployed
-   vision-language model.
+<div id="research-attributes" class="research-anchor"></div>
 
 I. Attribute-based zero-shot learning
 ------
@@ -60,6 +58,8 @@ supplying the missing spatial grounding. Evaluated on four ZSL benchmarks under 
 and the harder generalized (GZSL) setting.
 [Code](https://github.com/LanchJL/IAB-GZSL) &middot;
 [Paper](https://doi.org/10.1007/s11263-024-02021-x)
+
+<div id="research-compositions" class="research-anchor"></div>
 
 II. Compositional zero-shot learning
 ------
@@ -128,6 +128,8 @@ compositional structure itself. Evaluated on MIT-States, UT-Zappos and C-GQA in 
 closed-world and open-world settings.
 [Code](https://github.com/LanchJL/CIA-CZSL)
 
+<div id="research-domains" class="research-anchor"></div>
+
 III. Extending to unseen domains — IMEC, *IJCV 2025*
 ------
 
@@ -152,6 +154,8 @@ classification**, and improves the source domain as well as the target.
 A co-authored paper at **ICRA 2026** addresses zero-shot domain adaptation through
 language-guided attribute alignment and semantic consistency.
 
+<div id="research-adaptation" class="research-anchor"></div>
+
 IV. Test-time adaptation of vision-language models
 ------
 
@@ -163,6 +167,8 @@ training pass. A related line continues the compositional work of section II.
 Six first-author papers on these questions are currently under review. They are listed
 under [Publications](/publications/); I do not describe their methods further here while
 review is ongoing.
+
+<div id="research-applied" class="research-anchor"></div>
 
 V. Applied work — multimodal kidney transplant pathology
 ------

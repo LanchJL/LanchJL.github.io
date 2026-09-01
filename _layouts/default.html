@@ -36,7 +36,7 @@ layout: compress
     {% endif %}
   </head>
 
-  <body{% if page.url == '/' or page.url == '/zh/' %} class="home-page"{% endif %}>
+  <body{% if page.url == '/' or page.url == '/zh/' %} class="home-page"{% endif %}{% if page.url contains '/research/' %} class="research-page"{% endif %}{% if page.url contains '/publications/' %} class="publications-page"{% endif %}>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}

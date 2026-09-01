@@ -9,13 +9,18 @@ lang_alt: /zh/publications/
 
 {% include base_path %}
 
-<p class="wordwrap">
-  14 peer-reviewed papers, 6 as first author, plus 6 current first-author submissions
-  under review.
-  Also on <a href="{{ site.author.googlescholar }}">Google Scholar</a>
-  and <a href="https://dblp.org/search?q=Chenyi+Jiang">DBLP</a>.
-</p>
+<div class="publications-overview">
+  <div class="publications-overview__stats">
+    <div><strong>14</strong><span>peer-reviewed papers</span></div>
+    <div><strong>6</strong><span>first-author papers</span></div>
+    <div><strong>6</strong><span>current submissions</span></div>
+  </div>
+  <p>Full record below, with profiles on
+    <a href="{{ site.author.googlescholar }}">Google Scholar</a> and
+    <a href="https://dblp.org/search?q=Chenyi+Jiang">DBLP</a>.</p>
+</div>
 
+<section class="publication-section publication-section--review">
 <h2>Under review</h2><hr />
 {% comment %}
   Neither the venue nor the one-line method note is rendered. Several of these
@@ -25,22 +30,27 @@ lang_alt: /zh/publications/
 <ul class="under-review-list">
 {% for p in site.data.under_review %}
   <li>
-    <strong>{{ p.title }}</strong>
-    &mdash; <em>{{ p.status_en }}</em>
+    <span class="publication-review__index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+    <span><strong>{{ p.title }}</strong><em>{{ p.status_en }}</em></span>
   </li>
 {% endfor %}
 </ul>
+</section>
 
+<section class="publication-section publication-section--list">
 <h2>First-author papers</h2><hr />
 {% for post in site.publications reversed %}
   {% if post.first_author %}
     {% include archive-single.html %}
   {% endif %}
 {% endfor %}
+</section>
 
+<section class="publication-section publication-section--list">
 <h2>Co-authored papers</h2><hr />
 {% for post in site.publications reversed %}
   {% unless post.first_author %}
     {% include archive-single.html %}
   {% endunless %}
 {% endfor %}
+</section>

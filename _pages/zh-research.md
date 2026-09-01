@@ -20,14 +20,15 @@ lang_alt: /research/
 
 下面列出的方法工作均已公开代码。
 
-研究主线
-------
+<nav class="research-map" aria-label="研究分区">
+  <a href="#research-attributes"><span>01</span><strong>属性与局部证据</strong><small>IAB</small></a>
+  <a href="#research-compositions"><span>02</span><strong>组合结构建模</strong><small>ProLT · MUST · IMAX · CIA</small></a>
+  <a href="#research-domains"><span>03</span><strong>未见域泛化</strong><small>IMEC</small></a>
+  <a href="#research-adaptation"><span>04</span><strong>测试时自适应</strong><small>视觉语言模型</small></a>
+  <a href="#research-applied"><span>05</span><strong>多模态应用</strong><small>肾移植病理</small></a>
+</nav>
 
-1. **表示语义类别内部的视觉变化。** IAB 在零样本学习中引入近实例级属性与局部区域定位。
-2. **建模未见组合中的结构。** ProLT、MUST、IMAX 与 CIA 分别处理组合诱导的先验、
-   分量不平衡、组合感知几何和层次化类间亲和关系。
-3. **泛化到已见视觉域之外。** IMEC 用语言扩展到未见域；当前工作研究部署后的视觉语言模型
-   如何在无标签条件下适应。
+<div id="research-attributes" class="research-anchor"></div>
 
 一、基于属性的零样本学习
 ------
@@ -49,6 +50,8 @@ lang_alt: /research/
 补上缺失的空间依据。在四个 ZSL 基准上评估，覆盖 ZSL 与更难的广义设定（GZSL）。
 [代码](https://github.com/LanchJL/IAB-GZSL) &middot;
 [论文](https://doi.org/10.1007/s11263-024-02021-x)
+
+<div id="research-compositions" class="research-anchor"></div>
 
 二、组合零样本学习
 ------
@@ -114,6 +117,8 @@ lang_alt: /research/
 在 MIT-States、UT-Zappos 与 C-GQA 上评估，覆盖封闭世界与开放世界两种设定。
 [代码](https://github.com/LanchJL/CIA-CZSL)
 
+<div id="research-domains" class="research-anchor"></div>
+
 三、扩展到未见域 —— IMEC，*IJCV 2025*
 ------
 
@@ -135,6 +140,8 @@ lang_alt: /research/
 
 一篇合作论文（**ICRA 2026**）则通过语言引导的属性对齐与语义一致性处理零样本域适应。
 
+<div id="research-adaptation" class="research-anchor"></div>
+
 四、视觉语言模型的测试时自适应
 ------
 
@@ -145,6 +152,8 @@ lang_alt: /research/
 
 围绕这些问题的 6 篇一作论文目前在投，题目见[论文](/zh/publications/)页面。
 评审期间此处不展开方法细节。
+
+<div id="research-applied" class="research-anchor"></div>
 
 五、应用工作 —— 肾移植多模态病理
 ------
