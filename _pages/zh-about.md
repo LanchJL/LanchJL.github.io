@@ -15,9 +15,9 @@ lang_alt: /
     <a class="home-hero__link" href="mailto:jiangchenyi@njust.edu.cn">联系交流 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
   </div>
   <dl class="home-stats">
-    <div><dt>篇同行评议论文</dt><dd>14</dd></div>
-    <div><dt>篇第一作者论文</dt><dd>6</dd></div>
-    <div><dt>预计博士答辩</dt><dd>2027</dd></div>
+    <div><dt>同行评议论文</dt><dd>14</dd></div>
+    <div><dt>第一作者论文</dt><dd>6</dd></div>
+    <div><dt>博士答辩</dt><dd>2027</dd></div>
   </dl>
 </div>
 
