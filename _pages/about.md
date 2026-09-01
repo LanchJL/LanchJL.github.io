@@ -9,19 +9,27 @@ redirect_from:
   - /about.html
 ---
 
+<div class="home-hero">
+  <p class="home-hero__eyebrow">PH.D. CANDIDATE · NJUST · DEFENDING MARCH 2027</p>
+  <h1>Chenyi Jiang <span>江宸逸</span></h1>
+  <p class="home-hero__lead">I study how visual models keep their bearings when
+  compositions, domains, and visual evidence change.</p>
+  <div class="home-hero__actions">
+    <a class="home-hero__button" href="/research/">Explore the research <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    <a class="home-hero__link" href="mailto:jiangchenyi@njust.edu.cn">Start a conversation <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+  </div>
+  <dl class="home-stats">
+    <div><dt>peer-reviewed papers</dt><dd>14</dd></div>
+    <div><dt>first-author papers</dt><dd>6</dd></div>
+    <div><dt>expected Ph.D. defense</dt><dd>2027</dd></div>
+  </dl>
+</div>
+
 I am a Ph.D. candidate in Computer Science and Technology at the **School of Computer
 Science and Engineering, Nanjing University of Science and Technology (NJUST)**,
-advised by **Prof. Haofeng Zhang**. I expect to defend in **March 2027**.
-
-My research concerns **visual-semantic generalization beyond the training distribution**.
-Most of my published work studies compositional and generalized zero-shot recognition:
-how to recognize an unseen state-object combination from seen primitives, and how to
-learn visual-semantic correspondences when their visual variation is uneven. I have
-published **14 peer-reviewed papers, 6 as first author**. The record includes *IEEE TPAMI*,
-two papers in *IJCV*, *AAAI*, *IJCAI*, and two papers in *Pattern Recognition*; six further
-first-author papers are under review. More recently, I have extended this question to
-language-guided unseen-domain extension and label-free test-time adaptation of
-vision-language models.
+advised by **Prof. Haofeng Zhang**. My published work centers on **visual-semantic
+generalization beyond the training distribution**, with six further first-author papers
+under review.
 
 ### Research in one sentence
 

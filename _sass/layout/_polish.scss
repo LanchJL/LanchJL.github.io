@@ -46,7 +46,7 @@
     padding-bottom: 0.28em;
     font-size: 1.5em;
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     border-bottom: 1px solid var(--rule);
   }
 
@@ -55,7 +55,7 @@
     margin-bottom: 0.5em;
     font-size: 1.18em;
     font-weight: 600;
-    letter-spacing: -0.005em;
+    letter-spacing: 0;
     border-bottom: none;
   }
 
@@ -213,13 +213,293 @@
 .author__name {
   font-size: 1.05em;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 .author__bio {
   font-size: 0.9em;
   line-height: 1.6;
   opacity: 0.82;
+}
+
+/* ---------- landing page ---------- */
+/* The CV stays deliberately restrained. The landing page gets a clearer
+   editorial rhythm: one strong introduction, a few useful signals, and room
+   for the research story to breathe. */
+
+.home-page {
+  --home-ink        : #203746;
+  --home-muted     : #526874;
+  --home-accent    : #167d83;
+  --home-warm      : #d46f59;
+  --home-panel     : #e8f3f1;
+  --home-rule      : rgba(32, 55, 70, 0.18);
+  --home-nav       : rgba(248, 251, 250, 0.94);
+}
+
+html[data-theme="dark"] .home-page {
+  --home-ink        : #e7f4f1;
+  --home-muted     : #b6ceca;
+  --home-accent    : #61d1c0;
+  --home-warm      : #f1a184;
+  --home-panel     : #223735;
+  --home-rule      : rgba(231, 244, 241, 0.2);
+  --home-nav       : rgba(30, 45, 43, 0.94);
+}
+
+body.home-page::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--home-accent);
+  content: "";
+  z-index: 30;
+}
+
+.home-page .masthead {
+  background: var(--home-nav);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+.home-page #main {
+  margin-top: 3.7em;
+}
+
+.home-page .page__title {
+  display: none;
+}
+
+.home-page .archive {
+  margin-bottom: 5em;
+}
+
+.home-page .home-hero {
+  position: relative;
+  margin: 0 0 3.1em;
+  padding: 2.8em 3em 1.8em;
+  border-left: 6px solid var(--home-accent);
+  background: var(--home-panel);
+  overflow: hidden;
+}
+
+.home-page .home-hero::after {
+  position: absolute;
+  right: 2.5em;
+  top: 2.5em;
+  width: 42px;
+  height: 42px;
+  border-top: 2px solid var(--home-warm);
+  border-right: 2px solid var(--home-warm);
+  content: "";
+  opacity: 0.85;
+}
+
+.home-page .home-hero__eyebrow {
+  margin: 0 0 1.1em;
+  color: var(--home-accent);
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+.home-page .home-hero h1 {
+  margin: 0 0 0.25em;
+  color: var(--home-ink);
+  font-size: 3.8em;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.home-page .home-hero h1 span {
+  display: inline-block;
+  margin-left: 0.55em;
+  color: var(--home-warm);
+  font-size: 0.42em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+
+.home-page .home-hero__lead {
+  max-width: 38em;
+  margin: 0;
+  color: var(--home-muted);
+  font-size: 1.28em;
+  line-height: 1.55;
+}
+
+.home-page .home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9em 1.2em;
+  align-items: center;
+  margin-top: 1.8em;
+}
+
+.home-page .home-hero__button,
+.home-page .home-hero__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  min-height: 2.65em;
+  padding: 0.55em 1em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: transform 0.15s ease, background-color 0.15s ease,
+              color 0.15s ease, border-color 0.15s ease;
+}
+
+.home-page .home-hero__button {
+  background: var(--home-accent);
+  color: #fff;
+}
+
+.home-page .home-hero__button:hover,
+.home-page .home-hero__button:focus-visible {
+  background: var(--home-ink);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.home-page .home-hero__link {
+  border: 1px solid var(--home-rule);
+  color: var(--home-ink);
+}
+
+.home-page .home-hero__link:hover,
+.home-page .home-hero__link:focus-visible {
+  border-color: var(--home-accent);
+  color: var(--home-accent);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.home-page .home-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4em;
+  margin: 2.5em 0 0;
+  padding: 1.2em 0 0;
+  border-top: 1px solid var(--home-rule);
+}
+
+.home-page .home-stats div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.home-page .home-stats dt {
+  order: 2;
+  margin: 0.45em 0 0;
+  color: var(--home-muted);
+  font-size: 0.76em;
+  line-height: 1.35;
+}
+
+.home-page .home-stats dd {
+  margin: 0;
+  order: 1;
+  color: var(--home-ink);
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.home-page .archive > h3 {
+  margin-top: 2.25em;
+  color: var(--home-ink);
+  font-size: 1.25em;
+}
+
+.home-page .archive > h3::before {
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  margin: 0 0.55em 0.08em 0;
+  background: var(--home-warm);
+  content: "";
+}
+
+.home-page .sidebar {
+  border-right: 1px solid var(--home-rule);
+}
+
+.home-page .sidebar .author__name {
+  color: var(--home-ink);
+}
+
+.home-page .sidebar .author__bio {
+  color: var(--home-muted);
+}
+
+.home-page .sidebar .author__urls a {
+  border-left: 2px solid transparent;
+  padding-left: 0.35em;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.home-page .sidebar .author__urls a:hover {
+  border-left-color: var(--home-warm);
+  color: var(--home-accent);
+}
+
+@media screen and (max-width: 800px) {
+  .home-page #main {
+    margin-top: 2em;
+  }
+
+  .home-page .home-hero {
+    padding: 2.2em 1.6em 1.5em;
+  }
+
+  .home-page .home-hero::after {
+    right: 1.5em;
+    top: 1.5em;
+  }
+
+  .home-page .home-hero h1 {
+    font-size: 2.7em;
+  }
+
+  .home-page .home-hero h1 span {
+    display: block;
+    margin: 0.35em 0 0;
+    font-size: 0.45em;
+  }
+
+  .home-page .home-hero__lead {
+    font-size: 1.12em;
+  }
+
+  .home-page .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--home-rule);
+    padding-bottom: 1.5em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-page .home-stats {
+    gap: 0.7em;
+  }
+
+  .home-page .home-stats dd {
+    font-size: 1.65em;
+  }
+
+  .home-page .home-stats dt {
+    font-size: 0.7em;
+  }
 }
 
 /* ---------- Chinese tree ---------- */

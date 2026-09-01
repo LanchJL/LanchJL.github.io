@@ -6,15 +6,23 @@ nav: zh
 lang_alt: /
 ---
 
-我是**南京理工大学计算机科学与工程学院**计算机科学与技术专业博士研究生，
-导师为**张浩峰教授**，预计 **2027 年 3 月**答辩。
+<div class="home-hero">
+  <p class="home-hero__eyebrow">博士研究生 · 南京理工大学 · 预计 2027 年答辩</p>
+  <h1>江宸逸 <span>Chenyi Jiang</span></h1>
+  <p class="home-hero__lead">我研究当组合、域和视觉证据发生变化时，视觉模型如何保持泛化能力。</p>
+  <div class="home-hero__actions">
+    <a class="home-hero__button" href="/zh/research/">探索研究 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    <a class="home-hero__link" href="mailto:jiangchenyi@njust.edu.cn">联系交流 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+  </div>
+  <dl class="home-stats">
+    <div><dt>篇同行评议论文</dt><dd>14</dd></div>
+    <div><dt>篇第一作者论文</dt><dd>6</dd></div>
+    <div><dt>预计博士答辩</dt><dd>2027</dd></div>
+  </dl>
+</div>
 
-我的研究关注**训练分布之外的视觉—语义泛化**。已发表工作主要研究组合与广义零样本
-识别：如何从已见的状态、物体基元推断未见组合，以及当视觉变化不均衡时如何学习视觉—
-语义对应关系。目前已发表/录用同行评议论文 **14 篇，其中第一作者 6 篇**；论文发表于
-*IEEE TPAMI*、*IJCV*（2 篇）、*AAAI*、*IJCAI* 与 *Pattern Recognition*（2 篇）等；
-另有 6 篇一作在投。近期研究进一步延伸到语言驱动的未见域扩展，以及无标签视觉语言模型
-的测试时自适应。
+我是**南京理工大学计算机科学与工程学院**计算机科学与技术专业博士研究生，导师为
+**张浩峰教授**。我的发表工作围绕**训练分布之外的视觉—语义泛化**展开，另有 6 篇一作在投。
 
 ### 用一句话概括研究
 

@@ -36,7 +36,7 @@ layout: compress
     {% endif %}
   </head>
 
-  <body>
+  <body{% if page.url == '/' or page.url == '/zh/' %} class="home-page"{% endif %}>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
