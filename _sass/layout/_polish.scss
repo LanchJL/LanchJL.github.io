@@ -278,6 +278,7 @@ body.home-page::before {
 
 .home-page .home-hero {
   position: relative;
+  box-sizing: border-box;
   margin: 0 0 3.1em;
   padding: 2.8em 3em 1.8em;
   border-left: 6px solid var(--home-accent);
@@ -424,6 +425,7 @@ body.home-page::before {
 
 .home-page .home-intro {
   max-width: 44em;
+  overflow-wrap: anywhere;
   margin: 0 0 3em;
   color: var(--home-muted);
   font-size: 1.12em;
@@ -504,6 +506,7 @@ body.home-page::before {
 
 .home-page .home-lane p {
   margin: 0;
+  overflow-wrap: anywhere;
   color: var(--home-muted);
   font-size: 0.93em;
   line-height: 1.65;
@@ -602,6 +605,7 @@ body.home-page::before {
 }
 
 .home-page .home-feature__title span {
+  overflow-wrap: anywhere;
   color: var(--home-muted);
   font-size: 0.88em;
   line-height: 1.45;
@@ -619,6 +623,7 @@ body.home-page::before {
 
 .home-page .home-now {
   display: grid;
+  box-sizing: border-box;
   grid-template-columns: minmax(10em, 0.7fr) minmax(0, 1.3fr) auto;
   gap: 2em;
   align-items: start;
@@ -698,8 +703,8 @@ body.home-page::before {
   }
 
   .home-page .home-hero {
-    width: 100%;
-    max-width: calc(100vw - 3em);
+    width: auto;
+    max-width: 100%;
     padding: 2.2em 1.6em 1.5em;
   }
 
