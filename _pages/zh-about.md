@@ -21,55 +21,75 @@ lang_alt: /
   </dl>
 </div>
 
-我是**南京理工大学计算机科学与工程学院**计算机科学与技术专业博士研究生，导师为
-**张浩峰教授**。我的发表工作围绕**训练分布之外的视觉—语义泛化**展开，另有 6 篇一作在投。
+<p class="home-intro">我是<strong>南京理工大学计算机科学与工程学院</strong>计算机科学与技术专业博士研究生，
+导师为<strong>张浩峰教授</strong>。我关注训练分布之外的视觉—语义泛化：当语义结构和视觉证据
+不再完全对应时，视觉模型如何继续可靠地识别与适应。</p>
 
-### 用一句话概括研究
+<section class="home-lanes" aria-labelledby="research-map-title">
+  <div class="home-section-heading">
+    <p class="home-section-kicker">研究地图</p>
+    <h2 id="research-map-title">一个问题，三种场景。</h2>
+    <p>下面三条主线共享同一个目标：让语言、视觉证据与模型预测之间的联系更加忠实。</p>
+  </div>
+  <div class="home-lanes__grid">
+    <a class="home-lane" href="/zh/research/">
+      <span class="home-lane__index">01</span>
+      <h3>组合与广义零样本识别</h3>
+      <p>当测试时的属性—物体组合从未在训练中出现，模型应如何建立两者与视觉证据的关系？</p>
+      <span class="home-lane__arrow">查看研究 <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+    <a class="home-lane" href="/zh/research/">
+      <span class="home-lane__index">02</span>
+      <h3>跨域泛化</h3>
+      <p>语言如何帮助模型走向新的视觉域，同时保留真正重要的内容信息？</p>
+      <span class="home-lane__arrow">查看研究 <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+    <a class="home-lane" href="/zh/research/">
+      <span class="home-lane__index">03</span>
+      <h3>部署后的模型适应</h3>
+      <p>视觉语言模型如何从测试阶段的无标签数据流中持续学习？</p>
+      <span class="home-lane__arrow">查看研究 <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+  </div>
+</section>
 
-我的工作反复处理同一个问题：**用于学习的语义结构，是否真正对应了需要解释的视觉证据**？
-我分别从类内变化与局部属性（IAB）、组合诱导的先验与分量不平衡（ProLT、MUST）、
-组合依赖的几何与类间亲和关系（IMAX、CIA），以及语言驱动未见域迁移中的内容校准（IMEC）
-来处理这一问题。当前研究把它推进到**无标签、在线的视觉语言模型测试时自适应**。
+<section class="home-feature" aria-labelledby="selected-work-title">
+  <div class="home-section-heading home-feature__heading">
+    <p class="home-section-kicker">代表工作</p>
+    <h2 id="selected-work-title">从语义结构走向视觉证据。</h2>
+    <p>几篇能够串起这条研究脉络的代表性工作。</p>
+  </div>
+  <div class="home-feature__list">
+    <a class="home-feature__item" href="/publication/2026-01-01-clique-inter-class-affinity-czsl">
+      <span class="home-feature__year">2026</span>
+      <span class="home-feature__title"><strong>CIA</strong><span>用亲和团建模组合零样本识别中的类间关系</span></span>
+      <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+    </a>
+    <a class="home-feature__item" href="/publication/2025-03-01-imaginary-connected-embedding-tpami">
+      <span class="home-feature__year">2025</span>
+      <span class="home-feature__title"><strong>IMAX</strong><span>在复数空间中刻画组合依赖的几何结构</span></span>
+      <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+    </a>
+    <a class="home-feature__item" href="/publication/2025-07-01-imbuing-enrichment-calibration-ijcv">
+      <span class="home-feature__year">2025</span>
+      <span class="home-feature__title"><strong>IMEC</strong><span>用语言引导模型扩展到未见视觉域</span></span>
+      <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+    </a>
+  </div>
+  <a class="home-text-link" href="/zh/publications/">浏览全部论文 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</section>
 
-### 三条相互连接的方向
-
-- **组合与广义零样本识别。** IAB、ProLT、MUST、IMAX 与 CIA 研究在测试组合未见时，
-  属性、物体、组合及其视觉证据应如何建立关系。
-- **跨域泛化。** IMEC 用语言将模型扩展到未见域，同时尽量保留视觉内容；ICRA 合作论文
-  进一步研究语言引导的属性对齐与零样本域适应。
-- **视觉语言模型测试时自适应。** 目前 6 篇一作在投，其中 4 篇研究部署后的无标签适应，
-  另外 2 篇延续组合识别方向。
-
-欢迎通过 [jiangchenyi@njust.edu.cn](mailto:jiangchenyi@njust.edu.cn) 联系我，
-或查看[简历](/zh/cv/)与[研究](/zh/research/)页面。
-我预计 2027 年完成博士学业，欢迎围绕视觉—语义泛化、组合识别、跨域适应和测试时
-自适应交流博士后研究机会。
-
-教育背景
-======
-
-* **2023 – 2027**（预计）· 博士，计算机科学与技术 · *南京理工大学*
-* **2021 – 2023** · 硕士，模式识别与智能系统 · *南京理工大学*
-* **2017 – 2021** · 学士，数学与应用数学 · *福州大学*
-
-硕博连读，导师张浩峰教授。本科获推荐免试资格保送南京理工大学。
-
-代表性第一作者论文
-======
-
-{% assign firsts = site.publications | where: "first_author", true | sort: "date" | reverse %}
-{% for p in firsts %}
-- **{{ p.title }}**<br />
-  <span class="pub-venue">{{ p.venue_short }}</span>{% if p.codeurl %} · [代码]({{ p.codeurl }}){% endif %}{% if p.paperurl %} · [论文]({{ p.paperurl }}){% endif %}
-{% endfor %}
-
-奖励与学术服务
-======
-
-* **博士研究生国家奖学金**，2025 年
-* **优秀博士培养对象**，南京理工大学——2025 年入选，2026 年复审后继续资助
-* **一等学业奖学金**，南京理工大学——多次获得
-* 担任 **NeurIPS**、**ICML**、**ICLR**、**AAAI**、*Pattern Recognition*、
-  *IEEE Transactions on Circuits and Systems for Video Technology* 审稿人
+<section class="home-now" aria-labelledby="home-now-title">
+  <div class="home-now__heading">
+    <p class="home-section-kicker">当前工作</p>
+    <h2 id="home-now-title">面向下一步。</h2>
+  </div>
+  <p class="home-now__copy">我目前研究视觉语言模型的无标签在线测试时自适应，并计划在预计于 2027 年 3 月完成
+    博士答辩后，继续寻找视觉—语义泛化方向的博士后研究机会。</p>
+  <div class="home-now__actions">
+    <a class="home-text-link" href="/zh/cv/">查看完整简历 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    <a class="home-text-link" href="mailto:jiangchenyi@njust.edu.cn">联系交流 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+  </div>
+</section>
 
 ---
