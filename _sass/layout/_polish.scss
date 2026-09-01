@@ -442,6 +442,11 @@ body.home-page::before {
   color: var(--home-muted);
 }
 
+.home-page .sidebar .author__urls li {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .home-page .sidebar .author__urls a {
   border-left: 2px solid transparent;
   padding-left: 0.35em;
@@ -459,6 +464,8 @@ body.home-page::before {
   }
 
   .home-page .home-hero {
+    width: 100%;
+    max-width: calc(100vw - 2em);
     padding: 2.2em 1.6em 1.5em;
   }
 
