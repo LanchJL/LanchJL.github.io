@@ -84,8 +84,9 @@ the full page width.
 python scripts/build_cv.py --pdf
 ```
 
-It reads `_publications/` and the aggregate count in `_data/under_review.yml`, so it
-cannot drift out of step with the site, writes `../resume/CV-Chenyi-Jiang.html`, and prints it through headless
+It reads `_publications/` and, when present, the private `../under_review_private.yml`
+file for full under-review titles; otherwise it falls back to the public aggregate in
+`_data/under_review.yml`. It writes `../resume/CV-Chenyi-Jiang.html` and prints it through headless
 Chrome to `../resume/CV-江宸逸-南京理工大学.pdf`.
 
 The `--pdf` step exists because the browser print dialog stamps the file path and the
@@ -108,10 +109,13 @@ venue tier, so each paper carries an explicit CCF label, and the research summar
 dropped (that belongs in the research plan, not the CV). Education, awards and skills
 exist separately in each script — change one and change the other.
 
-Neither CV nor the site exposes exact titles or target venues for papers under review.
+The site exposes only the coarse count and research split for papers under review. A
+standalone CV may expose exact titles by reading `../under_review_private.yml`, which
+must remain outside this public repository. Neither version names target venues by
+default.
 Several are under double-blind review, and a CV gets forwarded further than the person
-it was sent to. The public repository stores only the aggregate count; keep full records
-in a private application-materials location.
+it was sent to. Keep the private file and generated application CVs in a controlled
+location.
 
 Content with no home in the site data — education, awards, service, skills — is
 declared at the top of `scripts/build_cv.py`.

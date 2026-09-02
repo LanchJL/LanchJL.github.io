@@ -248,12 +248,17 @@ def build():
             out.append("<li>%s%s%s</li>" % (tag, p.get("citation", p["title"]), tail))
         return "\n".join(out)
 
-    ur_items = (
-        '<li><b>%d 篇第一作者稿件</b>目前在审：%d 篇关于视觉语言模型测试时自适应'
-        '（VLM-TTA），%d 篇关于组合零样本学习（CZSL）。匿名评审期间不公开题目与'
-        '投稿地；在适当的私发申请材料中可以提供完整记录。</li>'
-        % (ur_summary.get("count", len(ur)), ur_summary.get("vlm_tta", 0),
-           ur_summary.get("czsl", 0)))
+    if os.path.isfile(os.path.join(PARENT, "under_review_private.yml")):
+        ur_items = "\n".join(
+            '<li><b>江宸逸</b> 等. %s <span class="links">在投</span></li>' %
+            i["title"] for i in ur)
+    else:
+        ur_items = (
+            '<li><b>%d 篇第一作者稿件</b>目前在审：%d 篇关于视觉语言模型测试时自适应'
+            '（VLM-TTA），%d 篇关于组合零样本学习（CZSL）。匿名评审期间不公开题目与'
+            '投稿地；在适当的私发申请材料中可以提供完整记录。</li>'
+            % (ur_summary.get("count", len(ur)), ur_summary.get("vlm_tta", 0),
+               ur_summary.get("czsl", 0)))
 
     contact = " ".join('<span><b>%s</b> <a href="%s">%s</a></span>' % (k, u, v)
                        for k, v, u in CONTACT)

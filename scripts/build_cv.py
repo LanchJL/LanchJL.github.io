@@ -20,6 +20,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB_DIR = os.path.join(ROOT, "_publications")
 UNDER_REVIEW = os.path.join(ROOT, "_data", "under_review.yml")
 PARENT = os.path.dirname(ROOT)
+PRIVATE_UNDER_REVIEW = os.path.join(PARENT, "under_review_private.yml")
 # The recovered source lives in a resume/homepage folder here, while the
 # original Windows layout was code/homepage beside code/resume.
 OUTPUT_DIR = PARENT if os.path.basename(PARENT).lower() == "resume" else os.path.join(PARENT, "resume")
@@ -193,9 +194,10 @@ def load_publications():
 
 
 def load_under_review():
-    """Read the public aggregate count without requiring private titles."""
+    """Read private CV titles when available, otherwise use the public count."""
+    source = PRIVATE_UNDER_REVIEW if os.path.isfile(PRIVATE_UNDER_REVIEW) else UNDER_REVIEW
     items, cur, count = [], None, None
-    for raw in io.open(UNDER_REVIEW, encoding="utf-8"):
+    for raw in io.open(source, encoding="utf-8"):
         line = raw.rstrip("\n")
         if line.strip().startswith("#") or not line.strip():
             continue
@@ -366,14 +368,21 @@ def render(target=None):
     skills = "\n".join(
         '<tr><td class="k">%s</td><td>%s</td></tr>' % (k, v) for k, v in SKILLS)
 
-    ur_items = (
-        '<li><b>%d first-author manuscripts</b> are currently under review: '
-        '%d on vision-language model test-time adaptation (VLM-TTA) and %d on '
-        'compositional zero-shot learning (CZSL). Titles and venues are withheld '
-        'during anonymous review; full records can be supplied in private application '
-        'materials.</li>' % (ur_summary.get("count", len(ur)),
-                              ur_summary.get("vlm_tta", 0),
-                              ur_summary.get("czsl", 0)))
+    if os.path.isfile(PRIVATE_UNDER_REVIEW):
+        # Full titles are allowed only in the private application-materials export.
+        ur_items = "\n".join(
+            '<li><b>Chenyi Jiang</b> et al. &ldquo;%s.&rdquo; '
+            '<span class="links">%s</span></li>' %
+            (i["title"], i.get("status_en", "Under review")) for i in ur)
+    else:
+        ur_items = (
+            '<li><b>%d first-author manuscripts</b> are currently under review: '
+            '%d on vision-language model test-time adaptation (VLM-TTA) and %d on '
+            'compositional zero-shot learning (CZSL). Titles and venues are withheld '
+            'during anonymous review; full records can be supplied in private application '
+            'materials.</li>' % (ur_summary.get("count", len(ur)),
+                                  ur_summary.get("vlm_tta", 0),
+                                  ur_summary.get("czsl", 0)))
 
     html = """<!doctype html>
 <html lang="en">
