@@ -2,3 +2,5 @@
 # private application CV; keeping them here would expose double-blind
 # submissions through the public repository even when they are not rendered.
 count: 6
+vlm_tta: 4
+czsl: 2

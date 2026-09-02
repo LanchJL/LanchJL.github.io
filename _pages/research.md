@@ -164,8 +164,10 @@ distribution it will actually meet. My current work asks how such a model should
 **reorganize its own evidence at test time** --- unlabelled, online, and without a second
 training pass. A related line continues the compositional work of section II.
 
-Six first-author papers on these questions are currently under review. Their titles are
-withheld on the public [Publications](/publications/) page during anonymous review.
+{{ site.data.under_review.count }} first-author papers on these questions are currently
+under review: {{ site.data.under_review.vlm_tta }} on VLM-TTA and
+{{ site.data.under_review.czsl }} on CZSL. Their titles are withheld on the public
+[Publications](/publications/) page during anonymous review.
 
 <div id="research-applied" class="research-anchor"></div>
 

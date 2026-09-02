@@ -221,6 +221,18 @@ def load_under_review():
     return items
 
 
+def load_under_review_summary():
+    """Read the public count and coarse research split, never paper titles."""
+    summary = {}
+    for raw in io.open(UNDER_REVIEW, encoding="utf-8"):
+        if raw.strip().startswith("#"):
+            continue
+        m = re.match(r"^\s*([a-z_]+)\s*:\s*(\d+)\s*$", raw.rstrip("\n"))
+        if m:
+            summary[m.group(1)] = int(m.group(2))
+    return summary
+
+
 # --------------------------------------------------------------------------
 # Rendering.
 # --------------------------------------------------------------------------
@@ -303,6 +315,7 @@ def render(target=None):
     first = [p for p in pubs if p["_first"]]
     co = [p for p in pubs if not p["_first"]]
     ur = load_under_review()
+    ur_summary = load_under_review_summary()
 
     interests = cfg.get("interests", INTERESTS)
 
@@ -354,9 +367,13 @@ def render(target=None):
         '<tr><td class="k">%s</td><td>%s</td></tr>' % (k, v) for k, v in SKILLS)
 
     ur_items = (
-        '<li><b>%d first-author manuscripts</b> are currently under review. '
-        'Titles and venues are withheld during anonymous review; full records '
-        'can be supplied in private application materials.</li>' % len(ur))
+        '<li><b>%d first-author manuscripts</b> are currently under review: '
+        '%d on vision-language model test-time adaptation (VLM-TTA) and %d on '
+        'compositional zero-shot learning (CZSL). Titles and venues are withheld '
+        'during anonymous review; full records can be supplied in private application '
+        'materials.</li>' % (ur_summary.get("count", len(ur)),
+                              ur_summary.get("vlm_tta", 0),
+                              ur_summary.get("czsl", 0)))
 
     html = """<!doctype html>
 <html lang="en">

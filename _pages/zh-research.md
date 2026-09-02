@@ -150,8 +150,10 @@ lang_alt: /research/
 ——无标签、在线、且不进行第二次训练。
 另有一条线索延续第二节的组合零样本学习工作。
 
-围绕这些问题的 6 篇一作论文目前在投。[论文](/zh/publications/)页面仅报告数量，
-评审期间不展示题目与方法细节。
+围绕这些问题的 {{ site.data.under_review.count }} 篇一作论文目前在投，其中
+{{ site.data.under_review.vlm_tta }} 篇属于视觉语言模型测试时自适应（VLM-TTA），
+{{ site.data.under_review.czsl }} 篇属于组合零样本学习（CZSL）。[论文](/zh/publications/)
+页面仅报告数量与方向，评审期间不展示题目与方法细节。
 
 <div id="research-applied" class="research-anchor"></div>
 

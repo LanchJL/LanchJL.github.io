@@ -78,9 +78,11 @@ Full list with links on the [Publications]({{ base_path }}/publications/) page.
 Under review / in preparation
 ======
 
-Six first-author manuscripts are currently under review. Titles and venues are
-withheld on this public CV during anonymous review; a private application CV can
-include the full records when appropriate.
+{{ site.data.under_review.count }} first-author manuscripts are currently under review:
+{{ site.data.under_review.vlm_tta }} on vision-language model test-time adaptation
+(VLM-TTA) and {{ site.data.under_review.czsl }} on compositional zero-shot learning
+(CZSL). Titles and venues are withheld on this public CV during anonymous review; a
+private application CV can include the full records when appropriate.
 
 Grants and projects
 ======

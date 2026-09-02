@@ -18,7 +18,7 @@ drafts.
 | `_pages/*.md` | English pages, served at `/` |
 | `_pages/zh-*.md` | Chinese pages, served at `/zh/` |
 | `_publications/` | One file per paper; `first_author: true` drives the grouping |
-| `_data/under_review.yml` | Aggregate count of papers under review (titles kept private) |
+| `_data/under_review.yml` | Aggregate count and coarse direction split (titles kept private) |
 | `_data/navigation.yml` | Two menus: `main` (English) and `zh` (Chinese) |
 | `_sass/layout/_print.scss` | Print stylesheet — makes `/cv/` export as a clean PDF |
 

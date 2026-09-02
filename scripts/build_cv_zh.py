@@ -20,7 +20,8 @@ import sys
 import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_cv import load_publications, load_under_review, to_pdf  # noqa: E402
+from build_cv import (load_publications, load_under_review,
+                      load_under_review_summary, to_pdf)  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PARENT = os.path.dirname(ROOT)
@@ -222,6 +223,7 @@ def build():
     first = [p for p in pubs if p["_first"]]
     co = [p for p in pubs if not p["_first"]]
     ur = load_under_review()
+    ur_summary = load_under_review_summary()
 
     def items(lst):
         out = []
@@ -247,8 +249,11 @@ def build():
         return "\n".join(out)
 
     ur_items = (
-        '<li><b>%d 篇第一作者稿件</b>目前在审。匿名评审期间不公开题目与投稿地；'
-        '在适当的私发申请材料中可以提供完整记录。</li>' % len(ur))
+        '<li><b>%d 篇第一作者稿件</b>目前在审：%d 篇关于视觉语言模型测试时自适应'
+        '（VLM-TTA），%d 篇关于组合零样本学习（CZSL）。匿名评审期间不公开题目与'
+        '投稿地；在适当的私发申请材料中可以提供完整记录。</li>'
+        % (ur_summary.get("count", len(ur)), ur_summary.get("vlm_tta", 0),
+           ur_summary.get("czsl", 0)))
 
     contact = " ".join('<span><b>%s</b> <a href="%s">%s</a></span>' % (k, u, v)
                        for k, v, u in CONTACT)
