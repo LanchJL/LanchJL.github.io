@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """Build the academic CV as a standalone, print-ready HTML file.
 
-Publication data is read from _publications/ and _data/under_review.yml so the
-CV cannot drift out of step with the website. Everything that has no home in
-those files — education, awards, service, skills — is declared below.
+Publication data is read from _publications/. Under-review titles are read from
+the private ../under_review_private.yml when it exists, while the public
+_data/under_review.yml supplies only the aggregate fallback. Everything that has
+no home in those files — education, awards, service, skills — is declared below.
 
     python scripts/build_cv.py
 
