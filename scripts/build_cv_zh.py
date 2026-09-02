@@ -21,12 +21,14 @@ import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_cv import (load_publications, load_under_review,
-                      load_under_review_summary, to_pdf)  # noqa: E402
+                      load_under_review_summary, to_pdf, CV_PHOTO_NAME)  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PARENT = os.path.dirname(ROOT)
 OUTPUT_DIR = PARENT if os.path.basename(PARENT).lower() == "resume" else os.path.join(PARENT, "resume")
 OUT = os.path.join(OUTPUT_DIR, "CV-Chenyi-Jiang-zh.html")
+CV_PHOTO_PATHS = (os.path.join(OUTPUT_DIR, CV_PHOTO_NAME),
+                  os.path.join(PARENT, CV_PHOTO_NAME))
 
 # 每篇论文的分级标注。原则：取「准确且最有利」的那个体系。
 #
@@ -133,6 +135,12 @@ a { color: #26455c; text-decoration: none; }
 @media print { a { color: #1a1a1a; } }
 
 header { border-bottom: 1.4pt solid #1a1a1a; padding-bottom: 8px; margin-bottom: 13px; }
+.header-main { display: flex; align-items: center; gap: 14px; }
+.header-copy { min-width: 0; }
+.header-photo {
+  width: 56px; height: 70px; flex: 0 0 56px; object-fit: cover;
+  object-position: 50% 28%; border: 1px solid #b8b8b8; border-radius: 6px;
+}
 h1 { font-size: 20pt; margin: 0 0 3px; font-weight: 600; letter-spacing: 2px; }
 h1 .en { font-size: 0.55em; font-weight: 400; color: #555; margin-left: 10px; letter-spacing: 0; }
 .position { font-size: 9.6pt; color: #333; line-height: 1.5; margin-bottom: 4px; }
@@ -181,9 +189,14 @@ TPL = """<!doctype html>
 <body>
 
 <header>
-  <h1>%(name)s <span class="en">%(name_en)s</span></h1>
-  <div class="position">%(position)s</div>
-  <div class="contact">%(contact)s</div>
+  <div class="header-main">
+    %(photo)s
+    <div class="header-copy">
+      <h1>%(name)s <span class="en">%(name_en)s</span></h1>
+      <div class="position">%(position)s</div>
+      <div class="contact">%(contact)s</div>
+    </div>
+  </div>
 </header>
 
 <section><h2>研究方向</h2><p>%(interests)s</p></section>
@@ -281,8 +294,13 @@ def build():
                        for k, v in SKILLS)
 
     today = datetime.date.today()
+    photo_path = next((path for path in CV_PHOTO_PATHS if os.path.isfile(path)), None)
+    photo = ('<img class="header-photo" src="%s" alt="%s">' %
+             (os.path.relpath(photo_path, os.path.dirname(OUT)).replace(os.sep, "/"),
+              NAME)) if photo_path else ""
     html = TPL % dict(
         name=NAME, name_en=NAME_EN, css=CSS, position=POSITION, contact=contact,
+        photo=photo,
         interests=INTERESTS, summary=SUMMARY, education=edu,
         n_total=len(pubs), n_first=len(first), n_ur=len(ur),
         first=items(first), co=items(co), ur=ur_items,

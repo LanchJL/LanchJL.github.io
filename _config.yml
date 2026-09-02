@@ -23,9 +23,9 @@ repository               : "LanchJL/LanchJL.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  # Keep profile.png in the repository for a possible future return, but do not
-  # display a personal photo on the public site for now.
-  avatar           :
+  # A compact portrait keeps the public profile personal without turning the
+  # research pages into a photo-led portfolio.
+  avatar           : "profile-photo.jpg"
   name             : "Chenyi Jiang / 江宸逸"
   pronouns         : # example: "she/her"
   bio              : "PhD candidate studying visual-semantic generalization beyond the training distribution: compositional and generalized zero-shot recognition, domain adaptation, and vision-language models."

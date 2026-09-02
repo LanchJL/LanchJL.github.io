@@ -22,10 +22,13 @@ PUB_DIR = os.path.join(ROOT, "_publications")
 UNDER_REVIEW = os.path.join(ROOT, "_data", "under_review.yml")
 PARENT = os.path.dirname(ROOT)
 PRIVATE_UNDER_REVIEW = os.path.join(PARENT, "under_review_private.yml")
+CV_PHOTO_NAME = "profile-photo.jpg"
 # The recovered source lives in a resume/homepage folder here, while the
 # original Windows layout was code/homepage beside code/resume.
 OUTPUT_DIR = PARENT if os.path.basename(PARENT).lower() == "resume" else os.path.join(PARENT, "resume")
 OUT = os.path.join(OUTPUT_DIR, "CV-Chenyi-Jiang.html")
+CV_PHOTO_PATHS = (os.path.join(OUTPUT_DIR, CV_PHOTO_NAME),
+                  os.path.join(PARENT, CV_PHOTO_NAME))
 
 # --------------------------------------------------------------------------
 # Content that does not live in the site data files.
@@ -254,6 +257,12 @@ a { color: #26455c; text-decoration: none; }
 @media print { a { color: #1a1a1a; } }
 
 header { border-bottom: 1.4pt solid #1a1a1a; padding-bottom: 8px; margin-bottom: 14px; }
+.header-main { display: flex; align-items: center; gap: 14px; }
+.header-copy { min-width: 0; }
+.header-photo {
+  width: 56px; height: 70px; flex: 0 0 56px; object-fit: cover;
+  object-position: 50% 28%; border: 1px solid #b8b8b8; border-radius: 6px;
+}
 h1 { font-size: 21pt; margin: 0 0 2px; letter-spacing: 0.3px; font-weight: normal; }
 h1 .zh { font-size: 0.62em; color: #555; margin-left: 8px; }
 .position { font-size: 9.6pt; color: #333; line-height: 1.45; margin-bottom: 5px; }
@@ -348,6 +357,11 @@ def render(target=None):
         '<span><b>%s</b> <a href="%s">%s</a></span>' % (k, url, v)
         for k, v, url in CONTACT)
 
+    photo_path = next((path for path in CV_PHOTO_PATHS if os.path.isfile(path)), None)
+    photo = ('<img class="header-photo" src="%s" alt="%s">' %
+             (os.path.relpath(photo_path, os.path.dirname(OUT)).replace(os.sep, "/"),
+              NAME_EN)) if photo_path else ""
+
     edu = "\n".join(
         '<div class="entry"><div class="entry-head">'
         '<span class="entry-title">%s</span><span class="entry-when">%s</span></div>'
@@ -395,9 +409,14 @@ def render(target=None):
 <body>
 
 <header>
-  <h1>%(name)s <span class="zh">%(zh)s</span></h1>
-  <div class="position">%(position)s</div>
-  <div class="contact">%(contact)s</div>
+  <div class="header-main">
+    %(photo)s
+    <div class="header-copy">
+      <h1>%(name)s <span class="zh">%(zh)s</span></h1>
+      <div class="position">%(position)s</div>
+      <div class="contact">%(contact)s</div>
+    </div>
+  </div>
 </header>
 
 <section>
@@ -459,6 +478,7 @@ def render(target=None):
 </html>
 """ % dict(
         name=NAME_EN, zh=NAME_ZH, css=CSS, position=POSITION, contact=contact,
+        photo=photo,
         interests=interests,
         summary="\n  ".join('<p class="summary">%s</p>' % re.sub(r"\s+", " ", p).strip()
                             for p in SUMMARY),
