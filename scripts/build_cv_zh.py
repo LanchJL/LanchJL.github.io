@@ -246,10 +246,9 @@ def build():
             out.append("<li>%s%s%s</li>" % (tag, p.get("citation", p["title"]), tail))
         return "\n".join(out)
 
-    # 在投不写投稿地：其中数篇处于双盲评审，而简历会被转发。
-    ur_items = "\n".join(
-        '<li><b>江宸逸</b> 等. %s <span class="links">在投</span></li>' % i["title"]
-        for i in ur)
+    ur_items = (
+        '<li><b>%d 篇第一作者稿件</b>目前在审。匿名评审期间不公开题目与投稿地；'
+        '在适当的私发申请材料中可以提供完整记录。</li>' % len(ur))
 
     contact = " ".join('<span><b>%s</b> <a href="%s">%s</a></span>' % (k, u, v)
                        for k, v, u in CONTACT)

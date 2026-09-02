@@ -164,9 +164,8 @@ distribution it will actually meet. My current work asks how such a model should
 **reorganize its own evidence at test time** --- unlabelled, online, and without a second
 training pass. A related line continues the compositional work of section II.
 
-Six first-author papers on these questions are currently under review. They are listed
-under [Publications](/publications/); I do not describe their methods further here while
-review is ongoing.
+Six first-author papers on these questions are currently under review. Their titles are
+withheld on the public [Publications](/publications/) page during anonymous review.
 
 <div id="research-applied" class="research-anchor"></div>
 

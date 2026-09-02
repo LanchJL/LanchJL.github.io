@@ -193,8 +193,8 @@ def load_publications():
 
 
 def load_under_review():
-    """Minimal reader for the flat list in _data/under_review.yml."""
-    items, cur = [], None
+    """Read the public aggregate count without requiring private titles."""
+    items, cur, count = [], None, None
     for raw in io.open(UNDER_REVIEW, encoding="utf-8"):
         line = raw.rstrip("\n")
         if line.strip().startswith("#") or not line.strip():
@@ -204,6 +204,10 @@ def load_under_review():
                 items.append(cur)
             cur = {}
             line = "  " + line[2:]
+        count_match = re.match(r"^\s*count\s*:\s*(\d+)\s*$", line)
+        if count_match:
+            count = int(count_match.group(1))
+            continue
         m = re.match(r"^\s+([a-z_]+)\s*:\s*(.*)$", line)
         if m and cur is not None:
             val = m.group(2).strip()
@@ -212,6 +216,8 @@ def load_under_review():
             cur[m.group(1)] = val
     if cur:
         items.append(cur)
+    if not items and count is not None:
+        return [{} for _ in range(count)]
     return items
 
 
@@ -347,16 +353,10 @@ def render(target=None):
     skills = "\n".join(
         '<tr><td class="k">%s</td><td>%s</td></tr>' % (k, v) for k, v in SKILLS)
 
-    # The target venue is deliberately not printed, here or on the site. Several
-    # of these are under double-blind review, and a CV circulates further than
-    # the person it was sent to. `venue` stays in _data/under_review.yml for
-    # reference; it is simply not rendered.
-    def ur_line(i):
-        who = "<b>Chenyi Jiang</b> et al. " if str(i.get("first_author", "")).lower() == "true" else ""
-        return "<li>%s&ldquo;%s.&rdquo; <span class=\"links\">%s</span></li>" % (
-            who, i["title"], i.get("status_en", "Under review"))
-
-    ur_items = "\n".join(ur_line(i) for i in ur)
+    ur_items = (
+        '<li><b>%d first-author manuscripts</b> are currently under review. '
+        'Titles and venues are withheld during anonymous review; full records '
+        'can be supplied in private application materials.</li>' % len(ur))
 
     html = """<!doctype html>
 <html lang="en">

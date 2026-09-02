@@ -18,7 +18,7 @@ drafts.
 | `_pages/*.md` | English pages, served at `/` |
 | `_pages/zh-*.md` | Chinese pages, served at `/zh/` |
 | `_publications/` | One file per paper; `first_author: true` drives the grouping |
-| `_data/under_review.yml` | Papers under review / in preparation |
+| `_data/under_review.yml` | Aggregate count of papers under review (titles kept private) |
 | `_data/navigation.yml` | Two menus: `main` (English) and `zh` (Chinese) |
 | `_sass/layout/_print.scss` | Print stylesheet — makes `/cv/` export as a clean PDF |
 
@@ -84,8 +84,8 @@ the full page width.
 python scripts/build_cv.py --pdf
 ```
 
-It reads `_publications/` and `_data/under_review.yml`, so it cannot drift out of step
-with the site, writes `../resume/CV-Chenyi-Jiang.html`, and prints it through headless
+It reads `_publications/` and the aggregate count in `_data/under_review.yml`, so it
+cannot drift out of step with the site, writes `../resume/CV-Chenyi-Jiang.html`, and prints it through headless
 Chrome to `../resume/CV-江宸逸-南京理工大学.pdf`.
 
 The `--pdf` step exists because the browser print dialog stamps the file path and the
@@ -108,9 +108,10 @@ venue tier, so each paper carries an explicit CCF label, and the research summar
 dropped (that belongs in the research plan, not the CV). Education, awards and skills
 exist separately in each script — change one and change the other.
 
-Neither CV names the target venue for a paper under review, and neither does the site.
+Neither CV nor the site exposes exact titles or target venues for papers under review.
 Several are under double-blind review, and a CV gets forwarded further than the person
-it was sent to. The venue stays in `_data/under_review.yml`, unrendered.
+it was sent to. The public repository stores only the aggregate count; keep full records
+in a private application-materials location.
 
 Content with no home in the site data — education, awards, service, skills — is
 declared at the top of `scripts/build_cv.py`.

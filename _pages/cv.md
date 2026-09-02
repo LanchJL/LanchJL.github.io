@@ -78,8 +78,9 @@ Full list with links on the [Publications]({{ base_path }}/publications/) page.
 Under review / in preparation
 ======
 
-{% for p in site.data.under_review %}1. {{ p.title }} --- *{{ p.status_en }}*
-{% endfor %}
+Six first-author manuscripts are currently under review. Titles and venues are
+withheld on this public CV during anonymous review; a private application CV can
+include the full records when appropriate.
 
 Grants and projects
 ======

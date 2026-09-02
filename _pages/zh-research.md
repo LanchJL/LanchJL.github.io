@@ -150,8 +150,8 @@ lang_alt: /research/
 ——无标签、在线、且不进行第二次训练。
 另有一条线索延续第二节的组合零样本学习工作。
 
-围绕这些问题的 6 篇一作论文目前在投，题目见[论文](/zh/publications/)页面。
-评审期间此处不展开方法细节。
+围绕这些问题的 6 篇一作论文目前在投。[论文](/zh/publications/)页面仅报告数量，
+评审期间不展示题目与方法细节。
 
 <div id="research-applied" class="research-anchor"></div>
 

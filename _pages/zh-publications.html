@@ -22,15 +22,8 @@ lang_alt: /publications/
 
 <section class="publication-section publication-section--review">
 <h2>在投</h2><hr />
-{% comment %} 同英文版：不渲染投稿地与方法一句话说明，避免双盲评审期被检索命中。 {% endcomment %}
-<ul class="under-review-list">
-{% for p in site.data.under_review %}
-  <li>
-    <span class="publication-review__index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-    <span><strong>{{ p.title }}</strong><em>{{ p.status_zh }}</em></span>
-  </li>
-{% endfor %}
-</ul>
+<p class="publication-review-note"><strong>目前有 6 篇第一作者稿件</strong>在审。
+匿名评审期间，这里不展示题目与投稿地；在适当的私发申请材料中可以提供完整记录。</p>
 </section>
 
 <section class="publication-section publication-section--list">
